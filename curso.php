@@ -37,7 +37,7 @@
                         <div class="touch-slider project-slider">
                             <div class="item">
                                 <div class="thumb-overlay"></div>
-                                <img alt="" src="images/portfolio-1/1.jpg" style="width:100%;">
+                                <img alt="" src="images/portfolio/uminho.jpg" style="width:100%;">
                             </div>
                         </div>
                     </div>

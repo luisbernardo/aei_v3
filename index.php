@@ -16,7 +16,7 @@
                 <!-- Carousel inner -->
                 <div class="carousel-inner">
                     <div class="item active">
-                        <img class="img-responsive" src="images/slider/bg1.jpg">
+                        <img class="img-responsive" src="images/home-slider.jpg">
                         <div class="slider-content">
                             <div class="col-md-12 text-center">
                                 <h2 class="animated7 white">
@@ -58,7 +58,7 @@
 
 
         <!-- Start Parallax -->
-        <div id="parallax-one" class="parallax" style="background-image:url(images/parallax/bg-02.jpg);">
+        <div id="parallax-one" class="parallax" style="background-image:url(images/parallax/parallax-01.jpg);">
             <div class="parallax-text-container-1">
                 <div class="parallax-text-item">
                     <div class="container">
