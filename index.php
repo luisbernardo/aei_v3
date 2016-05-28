@@ -30,7 +30,7 @@
                                 </div>
                             </div>
                         </div>
-                        <!--/ Carousel item end gggg-->
+                        <!--/ Carousel item end-->
                     </div>
                 </div>
         </section>
