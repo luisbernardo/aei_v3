@@ -237,8 +237,8 @@
                         <!-- Info - Icons List -->
                         <ul class="icons-list">
                             <li><i class="fa fa-globe">  </i> <strong>Morada:</strong> Campus de Azúrem, 4804-533 Guimarães</li>
-                            <li><i class="fa fa-envelope-o"></i> <strong>Email:</strong> sec@dsi.uminho.pt</li>
-                            <li><i class="fa fa-mobile"></i> <strong>Phone:</strong> +351 253 510 319</li>
+                            <li><i class="fa fa-envelope-o"></i> <strong>E-mail:</strong> sec@dsi.uminho.pt</li>
+                            <li><i class="fa fa-mobile"></i> <strong>Telefone:</strong> +351 253 510 319</li>
                         </ul>
 
                     </div>
