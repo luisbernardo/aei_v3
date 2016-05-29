@@ -10,6 +10,9 @@
 
         <!-- Define Charset -->
         <meta charset="utf-8">
+        
+        <!-- Ico -->
+        <link rel="icon" type="image/ico" href="images/aei.ico">
 
         <!-- Responsive Metatag -->
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
