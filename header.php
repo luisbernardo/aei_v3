@@ -12,7 +12,7 @@
                 </button>
                 <!-- End Toggle Nav Link For Mobiles -->
                 <a class="navbar-brand" href="index.php">
-                    <img alt="" style="max-width: 50px" src="images/aei.ico">
+                    <img alt="" style="max-height:35px" src="images/logo.png">
                 </a>
             </div>
             <div class="navbar-collapse collapse">
