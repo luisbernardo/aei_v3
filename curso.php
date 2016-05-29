@@ -83,7 +83,7 @@
                         </div>
                     </div>
                 </div>
-                <!-- End Testimonial -->
+                <!-- End Testimonial Section -->
             </div>
             <!-- End Testimonial Content -->
 
