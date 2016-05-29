@@ -10,14 +10,14 @@
                     <a href="index.php"><strong>Ínicio</strong></a><br>
                     <a href="about.php"><strong>Estatísticas</strong></a><br>
                     <a href="atos.php"><strong>Atos</strong></a><br>
-                    <a href="ato_ader.php">&nbsp;&nbsp;&nbsp; Análise de Domínio e Engenharia de Requisitos</a><br>
-                    <a href="ato_ccsi.php">&nbsp;&nbsp;&nbsp;Conceção e Construção de Soluções Informáticas</a><br>
-                    <a href="ato_tvsi.php">&nbsp;&nbsp;&nbsp;Teste e Validação de Soluções Informáticas</a><br>
-                    <a href="ato_peiti.php">&nbsp;&nbsp;&nbsp;Planeamento e Exploração de Infra-Estruturas de Tecnologias de Informação</a><br>
-                    <a href="ato_gpsi.php">&nbsp;&nbsp;&nbsp;Gestão de Projectos de Sistemas de Informação</a><br>
-                    <a href="ato_pasi.php">&nbsp;&nbsp;&nbsp;Planeamento e Auditoria de Sistemas de Informação</a><br>
-                    <a href="ato_iin.php">&nbsp;&nbsp;&nbsp;Investigação, Ensino e Normalização</a><br>
-                    <a href="ato_mga.php">&nbsp;&nbsp;&nbsp;Manutenção e Gestão de Ativos</a><br>    
+                    &nbsp;&nbsp;&nbsp; <a href="ato_ader.php">Análise de Domínio e Engenharia de Requisitos</a><br>
+                    &nbsp;&nbsp;&nbsp;<a href="ato_ccsi.php">Conceção e Construção de Soluções Informáticas</a><br>
+                    &nbsp;&nbsp;&nbsp;<a href="ato_tvsi.php">Teste e Validação de Soluções Informáticas</a><br>
+                    &nbsp;&nbsp;&nbsp;<a href="ato_peiti.php">Planeamento e Exploração de Infra-Estruturas de Tecnologias de Informação</a><br>
+                    &nbsp;&nbsp;&nbsp;<a href="ato_gpsi.php">Gestão de Projectos de Sistemas de Informação</a><br>
+                    &nbsp;&nbsp;&nbsp;<a href="ato_pasi.php">Planeamento e Auditoria de Sistemas de Informação</a><br>
+                    &nbsp;&nbsp;&nbsp;<a href="ato_iin.php">Investigação, Ensino e Normalização</a><br>
+                    &nbsp;&nbsp;&nbsp;<a href="ato_mga.php">Manutenção e Gestão de Ativos</a><br>    
                     <a href="cursos.php"><strong>Cursos</strong></a><br>
                     <a href="contact.php"><strong>Contactos</strong></a>
                 </div>
