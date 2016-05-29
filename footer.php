@@ -3,7 +3,7 @@
     <div class="container">
         <div class="row footer-widgets">
 
-            <!-- Start Twitter Widget -->
+            <!-- Start Index Widget -->
             <div class="col-md-6 col-xs-12">
                 <div class="footer-widget twitter-widget">
                     <h4>Índice<span class="head-line"></span></h4>
@@ -20,27 +20,24 @@
                     <a href="ato_mga.php">&nbsp;&nbsp;&nbsp;Manutenção e Gestão de Ativos</a><br>    
                     <a href="cursos.php"><strong>Cursos</strong></a><br>
                     <a href="contact.php"><strong>Contactos</strong></a>
-
                 </div>
             </div>
             <!-- .col-md-3 -->
-            <!-- End Twitter Widget -->
+            <!-- End Index Widget -->
 
             <!-- Start Contact Widget -->
-            <div class="col-md-3 col-xs-12">
+            <div class="col-md-6 col-xs-12">
                 <div class="footer-widget contact-widget">
                     <h4>Links<span class="head-line"></span></h4>
-                    <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident</p>
-                    <ul>
-                        <li><span>Phone Number:</span> +01 234 567 890</li>
-                        <li><span>Email:</span> company@company.com</li>
-                        <li><span>Website:</span> www.yourdomain.com</li>
-                    </ul>
+                    <a href="http://www.uminho.pt/"><img src="images/footer/um.png" style="max-width: 100px;"></a>
+                    <a href="http://www.eng.uminho.pt/"><img src="images/footer/ee.png" style="max-width: 100px;"></a>
+                    <a href="http://www.dsi.uminho.pt/"><img src="images/footer/dsi.png" style="max-width: 100px;"></a>
+                    <a href="http://miegsi.dsi.uminho.pt/"><img src="images/footer/miegsi.png" style="max-width: 100px;"></a>
+                    <a href="http://www.ordemengenheiros.pt/"><img src="images/footer/oe.jpg" style="max-width: 100px;"></a>
                 </div>
+                <!-- .col-md-3 -->
+                <!-- End Contact Widget -->
             </div>
-            <!-- .col-md-3 -->
-            <!-- End Contact Widget -->
-
 
         </div>
         <!-- .row -->

@@ -56,14 +56,6 @@
                             <li><strong>Regime:</strong> Normal</li>
                             <li><strong>Local:</strong> Campus de Azúrem, Guimarães</li>
                         </ul>
-                        <div class="post-share">
-                            <span>Share This:</span>
-                            <a class="facebook" href="#"><i class="fa fa-facebook"></i></a>
-                            <a class="twitter" href="#"><i class="fa fa-twitter"></i></a>
-                            <a class="gplus" href="#"><i class="fa fa-google-plus"></i></a>
-                            <a class="linkedin" href="#"><i class="fa fa-linkedin"></i></a>
-                            <a class="mail" href="#"><i class="fa fa-envelope"></i></a>
-                        </div>
                     </div>
                     <!-- End Project Content -->
                 </div>

@@ -167,9 +167,9 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>  
-                            <button type="submit" id="submit" class="btn-system btn-large">pesquisar</button>
+                            </div>
                         </div>
+                        <button type="submit" id="submit" class="btn-system btn-large">pesquisar</button>
                     </form>
                 </div>
             </div>
