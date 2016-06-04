@@ -207,9 +207,11 @@ function get_curso_pesquisa($city, $grau, $regime) {
             $query .= "LOCAL LIKE '%"  . $cidade . "'";
             $contadorCidade++;
         }
+        if(sizeof($grau) > 0) {
+            $query .= " AND ";
+        }
     }
     if (sizeof($grau) > 0) {
-        $query .= " AND ";
         $contadorGrau = 0;
         foreach ($grau as $gr) {
             if ($contadorGrau > 0) {
@@ -218,9 +220,11 @@ function get_curso_pesquisa($city, $grau, $regime) {
             $query .= "GRAU = '" . $gr . "'";
             $contadorGrau++;
         }
+        if(sizeof($regime) > 0) {
+            $query .= " AND ";
+        }
     }
     if (sizeof($regime) > 0) {
-        $query .= " AND ";
         $contadorRegime = 0;
         foreach ($regime as $reg) {
             if ($contadorRegime > 0) {

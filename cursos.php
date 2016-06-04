@@ -119,13 +119,13 @@ include 'funcoes.php';
                                         <div class="col-md-6 col-sm-6">
                                             <h5 class="classic-title" style="margin-bottom: 0px;">Ciclo de estudos</h5>
                                             <div class="checkbox">
-                                                <label><input type="checkbox" name="grau[]" value="Licenciatura">Licenciatura</label>
+                                                <label><input type="checkbox" name="grau[]" value="1">Licenciatura</label>
                                             </div>
                                             <div class="checkbox">
-                                                <label><input type="checkbox" name="grau[]" value="Mestrado Integrado">Mestrado Integrado</label>
+                                                <label><input type="checkbox" name="grau[]" value="2">Mestrado Integrado</label>
                                             </div>
                                             <div class="checkbox">
-                                                <label><input type="checkbox" name="grau[]" value="Mestrado">Mestrado</label>
+                                                <label><input type="checkbox" name="grau[]" value="3">Mestrado</label>
                                             </div>
                                         </div>
                                         <div class="col-md-6 col-sm-6">
@@ -214,26 +214,32 @@ include 'funcoes.php';
                                     $regime = $_POST['regime'];
                                 }
                                 $designacao_curso = get_curso_pesquisa($cidade, $grau, $regime);
-                                if (mysql_num_rows($designacao_curso) > 0) {
-                                    while ($row = mysql_fetch_array($designacao_curso)) {
-                                        echo '<div class = "col-md-12 service-box service-icon-left-more">';
-                                        echo '<div class = "service-icon">';
-                                        echo '<form id="form3" action="curso.php" method="post">';
-                                        echo '<a href="javascript:;" onclick="document.getElementById("form3").submit();">';
-                                        echo '<i class = "fa fa-institution icon-medium"></i>';
-                                        echo '</div>';
-                                        echo '<div class = "service-content">';
-                                        echo '<h4>' . $row['NOME'] . '</h4>';
-                                        $nome_univ = get_universidade($row['FK_ID_ENTIDADE']);
-                                        while ($row2 = mysql_fetch_array($nome_univ)) {
-                                            echo $row2['NOME'];
+                                if($designacao_curso) {
+                                    if (mysqli_num_rows($designacao_curso) > 0) {
+                                        while($row = mysqli_fetch_array($designacao_curso)) {
+                                            echo '<form id="f'.$row['ID_CURSO'].'" action="curso.php" method="post">';
+                                            echo '<a href="javascript:;" onclick="document.getElementById(\'f'.$row['ID_CURSO'].'\').submit();">';
+                                            echo '<div class = "col-md-12 service-box service-icon-left-more">';
+                                            echo '<div class = "service-icon">';
+                                            echo '<i class = "fa fa-institution icon-medium"></i>';
+                                            echo '</div>';
+                                            echo '<div class = "service-content">';
+                                            echo '<h4>' . $row['NOME'] . '</h4>';
+                                            $nome_univ = get_universidade($row['FK_ID_ENTIDADE']);
+                                            while ($row2 = mysqli_fetch_array($nome_univ)) {
+                                                echo $row2['NOME'];
+                                            }
+                                            echo '</div>';
+                                            echo '</div>';
+                                            echo '</a>';
+                                            echo '<input type="hidden" name="idcurso" value="'.$row['ID_CURSO'].'">';
+                                            echo '</form>';
                                         }
-                                        echo '</div>';
-                                        echo '</a>';
-                                        echo '</div>';
-                                        echo '<input type="hidden" name="idcurso" value="'.$row['ID_CURSO'].'">';
-                                        echo '</form>';
+                                    } else {
+                                        echo 'Não existem resultados para a pesquisa efetuada!';
                                     }
+                                } else {
+                                    echo 'Erro Query';
                                 }
                             } else {
                                 

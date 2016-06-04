@@ -20,11 +20,11 @@ echo $curso;
                     <div class="col-md-6">
                         <?php
                         $info_curso = get_curso($curso);
-                        if (mysql_num_rows($info_curso) > 0) {
-                            while ($row = mysql_fetch_array($info_curso)) {
+                        if (mysqli_num_rows($info_curso) > 0) {
+                            while ($row = mysqli_fetch_array($info_curso)) {
                                 $nome_univ = get_universidade($row['FK_ID_ENTIDADE']);
                                 echo '<h2>' . $row['NOME'] . '</h2>';
-                                while ($row2 = mysql_fetch_array($nome_univ)) {
+                                while ($row2 = mysqli_fetch_array($nome_univ)) {
 
                                     echo '<p>' . $row2['NOME'] . '</p>';
                                 }
@@ -38,8 +38,8 @@ echo $curso;
                             <li><a href="cursos.php">Cursos</a></li>
                             <li><?php
                                 $sigla_curso = get_curso($curso);
-                                if (mysql_num_rows($sigla_curso) > 0) {
-                                    while ($row = mysql_fetch_array($sigla_curso)) {
+                                if (mysqli_num_rows($sigla_curso) > 0) {
+                                    while ($row = mysqli_fetch_array($sigla_curso)) {
                                         echo $row['SIGLA'];
                                     }
                                 }
@@ -72,10 +72,10 @@ echo $curso;
                         <h4><span>Instituição de Ensino</span></h4>
                         <p><?php
                             $nome_curso2 = get_curso($curso);
-                            if (mysql_num_rows($nome_curso2) > 0) {
-                                while ($row = mysql_fetch_array($nome_curso2)) {
+                            if (mysqli_num_rows($nome_curso2) > 0) {
+                                while ($row = mysqli_fetch_array($nome_curso2)) {
                                     $nome_univ = get_universidade($row['FK_ID_ENTIDADE']);
-                                    while ($row2 = mysql_fetch_array($nome_univ)) {
+                                    while ($row2 = mysqli_fetch_array($nome_univ)) {
                                         echo $row2['NOME'];
                                     }
                                 }
@@ -84,8 +84,8 @@ echo $curso;
                         <h4><span>Curso</span></h4>
                         <ul><?php
                             $designacao_curso = get_curso($curso);
-                            if (mysql_num_rows($designacao_curso) > 0) {
-                                while ($row = mysql_fetch_array($designacao_curso)) {
+                            if (mysqli_num_rows($designacao_curso) > 0) {
+                                while ($row = mysqli_fetch_array($designacao_curso)) {
                                     echo '<li><strong>Designação: </strong>' . $row['NOME'] . '</li>';
                                     echo '<li><strong>Grau Académico: </strong >' . $row['GRAU'] . '</li>';
                                     echo '<li><strong>ECTS: </strong>' . $row['ECTS'] . '</li>';
@@ -112,8 +112,8 @@ echo $curso;
                             <div class="testimonial-content">
                                 <p><?php
                                     $descricao_curso = get_curso($curso);
-                                    if (mysql_num_rows($descricao_curso) > 0) {
-                                        while ($row = mysql_fetch_array($descricao_curso)) {
+                                    if (mysqli_num_rows($descricao_curso) > 0) {
+                                        while ($row = mysqli_fetch_array($descricao_curso)) {
                                             echo $row['DESCRICAO'];
                                         }
                                     }
@@ -121,10 +121,10 @@ echo $curso;
                             </div>
                             <?php
                             $site_curso = get_curso($curso);
-                            if (mysql_num_rows($site_curso) > 0) {
-                                while ($row = mysql_fetch_array($site_curso)) {
+                            if (mysqli_num_rows($site_curso) > 0) {
+                                while ($row = mysqli_fetch_array($site_curso)) {
                                     $nome_univ = get_universidade($row['FK_ID_ENTIDADE']);
-                                    while ($row2 = mysql_fetch_array($nome_univ)) {
+                                    while ($row2 = mysqli_fetch_array($nome_univ)) {
                                         echo'<div class="testimonial-author"><span>' . $row2['NOME'] . '</span> - <a href=http://' . $row2['WEBSITE'] . '>' . $row2['WEBSITE'] . '</a></div>';
                                     }
                                 }
@@ -317,8 +317,8 @@ echo $curso;
                                         <div class="panel-body">
                                             <?php
                                             $uc_1ano = get_info_uc_1ano($curso);
-                                            if (mysql_num_rows($uc_1ano) > 0) {
-                                                while ($row = mysql_fetch_array($uc_1ano)) {
+                                            if (mysqli_num_rows($uc_1ano) > 0) {
+                                                while ($row = mysqli_fetch_array($uc_1ano)) {
                                                     echo "<p>" . $row['ECTS'] . " ECTS - " . $row['NOME'] . "</p>";
                                                 }
                                             }
@@ -342,8 +342,8 @@ echo $curso;
                                         <div class="panel-body">
                                             <?php
                                             $uc_2ano = get_info_uc_2ano($curso);
-                                            if (mysql_num_rows($uc_2ano) > 0) {
-                                                while ($row = mysql_fetch_array($uc_2ano)) {
+                                            if (mysqli_num_rows($uc_2ano) > 0) {
+                                                while ($row = mysqli_fetch_array($uc_2ano)) {
                                                     echo "<p>" . $row['ECTS'] . " ECTS - " . $row['NOME'] . "</p>";
                                                 }
                                             }
@@ -367,8 +367,8 @@ echo $curso;
                                         <div class="panel-body">
                                             <?php
                                             $uc_3ano = get_info_uc_3ano($curso);
-                                            if (mysql_num_rows($uc_3ano) > 0) {
-                                                while ($row = mysql_fetch_array($uc_3ano)) {
+                                            if (mysqli_num_rows($uc_3ano) > 0) {
+                                                while ($row = mysqli_fetch_array($uc_3ano)) {
                                                     echo "<p>" . $row['ECTS'] . " ECTS - " . $row['NOME'] . "</p>";
                                                 }
                                             }
@@ -392,8 +392,8 @@ echo $curso;
                                         <div class="panel-body">
                                             <?php
                                             $uc_4ano = get_info_uc_4ano($curso);
-                                            if (mysql_num_rows($uc_4ano) > 0) {
-                                                while ($row = mysql_fetch_array($uc_4ano)) {
+                                            if (mysqli_num_rows($uc_4ano) > 0) {
+                                                while ($row = mysqli_fetch_array($uc_4ano)) {
                                                     echo "<p>" . $row['ECTS'] . " ECTS - " . $row['NOME'] . "</p>";
                                                 }
                                             }
@@ -417,8 +417,8 @@ echo $curso;
                                         <div class="panel-body">
                                             <?php
                                             $uc_5ano = get_info_uc_5ano($curso);
-                                            if (mysql_num_rows($uc_5ano) > 0) {
-                                                while ($row = mysql_fetch_array($uc_5ano)) {
+                                            if (mysqli_num_rows($uc_5ano) > 0) {
+                                                while ($row = mysqli_fetch_array($uc_5ano)) {
                                                     echo "<p>" . $row['ECTS'] . " ECTS - " . $row['NOME'] . "</p>";
                                                 }
                                             }
