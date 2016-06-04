@@ -669,16 +669,16 @@ ul.social-list li:last-child a i {
 	opacity: 1;
 }
 
-.dropdown li, .sup-dropdown li {
+.dropdown form li, .sup-dropdown form li {
 	position: relative;
     border-top: 1px solid rgba(0, 0, 0, 0.04);
 }
 
-.dropdown li:first-child, .sup-dropdown li:first-child {
+.dropdown form li:first-child, .sup-dropdown form li:first-child {
     border-top: none;
 }
 
-.dropdown li a, .sup-dropdown li a {
+.dropdown form li a, .sup-dropdown form li a {
     display: block;
     color: #666;
     font-size: 13px;
@@ -697,7 +697,7 @@ ul.social-list li:last-child a i {
 	padding-left: 18px;
 }
 
-.dropdown li a i {
+.dropdown form li a i {
 	margin: 0 0 0 -4px;
 }
 
@@ -720,7 +720,7 @@ ul.social-list li:last-child a i {
   	-webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
-.navbar-default .navbar-nav li.drop .dropdown li:hover .sup-dropdown {
+.navbar-default .navbar-nav li.drop .dropdown form li:hover .sup-dropdown {
     visibility: visible;
     margin-top: 0;
 }

@@ -63,16 +63,12 @@ include 'funcoes.php';
 
                         </div>
                     </div>
-
-                    <!-- Divider -->
-                    <div class="hr1" style="margin-bottom:50px;"></div>
-
                     <!-- Start Atos Section -->
                     <div class="section service">
-                        <div class="container">
                             <!-- Classic Heading -->
                             <h4 class="classic-title"><span>Grupos de Atos</span></h4>
                             <div class="row">
+                                <br>
                                 <!-- Start Service Icon 1 -->
                                 <form id="formulario1" action="atoprofissao.php" method="post">
                                     <div class="col-md-3 col-sm-6 service-box service-center" data-animation="fadeIn" data-animation-delay="01">
@@ -197,7 +193,6 @@ include 'funcoes.php';
 
                             </div>
                             <!-- .row -->
-                        </div>
                         <!-- .container -->
                     </div>
                     <!-- End Atos Section -->

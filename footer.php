@@ -8,16 +8,23 @@
                 <div class="footer-widget twitter-widget">
                     <h4>Índice<span class="head-line"></span></h4>
                     <a href="index.php"><strong>Ínicio</strong></a><br>
-                    <a href="about.php"><strong>Estatísticas</strong></a><br>
-                    <a href="atos.php"><strong>Atos</strong></a><br>
-                    &nbsp;&nbsp;&nbsp; <a href="ato_ader.php">Análise de Domínio e Engenharia de Requisitos</a><br>
-                    &nbsp;&nbsp;&nbsp;<a href="ato_ccsi.php">Conceção e Construção de Soluções Informáticas</a><br>
-                    &nbsp;&nbsp;&nbsp;<a href="ato_tvsi.php">Teste e Validação de Soluções Informáticas</a><br>
-                    &nbsp;&nbsp;&nbsp;<a href="ato_peiti.php">Planeamento e Exploração de Infra-Estruturas de Tecnologias de Informação</a><br>
-                    &nbsp;&nbsp;&nbsp;<a href="atoprofissao.php">Gestão de Projectos de Sistemas de Informação</a><br>
-                    &nbsp;&nbsp;&nbsp;<a href="ato_pasi.php">Planeamento e Auditoria de Sistemas de Informação</a><br>
-                    &nbsp;&nbsp;&nbsp;<a href="ato_iin.php">Investigação, Ensino e Normalização</a><br>
-                    &nbsp;&nbsp;&nbsp;<a href="ato_mga.php">Manutenção e Gestão de Ativos</a><br>    
+                    <a href="estatistica.php"><strong>Estatísticas</strong></a><br>
+                    <a href="atos.php"><strong>Atos de Profissão</strong></a><br>
+                    <?php
+                        require_once('funcoes.php');
+                    
+                        $grupos_atos = get_grupo_ato();
+                        if(mysqli_num_rows($grupos_atos) > 0) {
+                            while($row = mysqli_fetch_array($grupos_atos)) {
+                                echo '<form id="indice'.$row['ID_ATO_PROFISSAO'].'" action="atoprofissao.php" method="post">';
+                                echo '&nbsp&nbsp&nbsp<a href="javascript:;" onclick="document.getElementById(\'indice'.$row['ID_ATO_PROFISSAO'].'\').submit();">';
+                                echo $row['DESIGNACAO'];
+                                echo '</a>';
+                                echo '<input type="hidden" name="idato" value="'.$row['ID_ATO_PROFISSAO'].'">';
+                                echo '</form>';
+                            }
+                        }
+                    ?>    
                     <a href="cursos.php"><strong>Cursos</strong></a><br>
                     <a href="contact.php"><strong>Contactos</strong></a>
                 </div>
@@ -59,8 +66,5 @@
             </div>
             <!-- .row -->
         </div>
-        <!-- End Copyright -->
-
     </div>
 </footer>
-<!-- End Footer Section -->

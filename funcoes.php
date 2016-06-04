@@ -90,7 +90,7 @@ function get_grupo_ato() {
 function get_info_ato($idAto) {
     $ligacao = ligar_base_dados();
     $expressao = "SELECT * from ato_profissao Where ID_ATO_PROFISSAO = '" . $idAto . "' ";
-
+    echo $expressao;
     $resultado = mysqli_query($ligacao, $expressao);
     mysqli_close($ligacao);
     return $resultado;
@@ -108,7 +108,6 @@ function get_atos_filho($numPai) {
 function get_info_ato_filho($idAto) {
     $ligacao = ligar_base_dados();
     $expressao = "SELECT * from ato_profissao Where FK_ID_PAI = '" . $idAto . "'";
-
     $resultado = mysqli_query($ligacao, $expressao);
     mysqli_close($ligacao);
     return $resultado;

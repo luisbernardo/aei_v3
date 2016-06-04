@@ -26,25 +26,7 @@
                         <a href="about.php">Estatísticas</a>
                     </li>
                     <li>
-                        <a href="atos.php">Atos</a>
-                        <ul class="dropdown">
-                            <li><a href="ato_ader.php">Análise de Domínio e Engenharia de Requisitos</a>
-                            </li>
-                            <li><a href="ato_ccsi.php">Conceção e Construção de Soluções Informáticas</a>
-                            </li>
-                            <li><a href="ato_tvsi.php">Teste e Validação de Soluções Informáticas</a>
-                            </li>
-                            <li><a href="ato_peiti.php">Planeamento e Exploração de Infra-Estruturas de Tecnologias de Informação</a>
-                            </li>
-                            <li><a href="ato_gpsi.php">Gestão de Projectos de Sistemas de Informação</a>
-                            </li>
-                            <li><a href="ato_pasi.php">Planeamento e Auditoria de Sistemas de Informação</a>
-                            </li>
-                            <li><a href="ato_iin.php">Investigação, Ensino e Normalização</a>
-                            </li>
-                            <li><a href="ato_mga.php">Manutenção e Gestão de Ativos</a>
-                            </li>
-                        </ul>
+                        <a href="atos.php">Atos de Profissão</a>
                     </li>
                     <li>
                         <a href="cursos.php">Cursos</a>
@@ -68,22 +50,21 @@
             <li>
                 <a href="atos.php">Atos</a>
                 <ul class="dropdown">
-                    <li><a href="ato_ader.php">Análise de Domínio e Engenharia de Requisitos</a>
-                    </li>
-                    <li><a href="ato_ccsi.php">Conceção e Construção de Soluções Informáticas</a>
-                    </li>
-                    <li><a href="ato_tvsi.php">Teste e Validação de Soluções Informáticas</a>
-                    </li>
-                    <li><a href="ato_peiti.php">Planeamento e Exploração de Infra-Estruturas de Tecnologias de Informação</a>
-                    </li>
-                    <li><a href="ato_gpsi.php">Gestão de Projectos de Sistemas de Informação</a>
-                    </li>
-                    <li><a href="ato_pasi.php">Planeamento e Auditoria de Sistemas de Informação</a>
-                    </li>
-                    <li><a href="ato_iin.php">Investigação, Ensino e Normalização</a>
-                    </li>
-                    <li><a href="ato_mga.php">Manutenção e Gestão de Ativos</a>
-                    </li>
+                    <?php
+                        require_once('funcoes.php');
+
+                        $grupos_atos = get_grupo_ato();
+                        if(mysqli_num_rows($grupos_atos) > 0) {
+                            while($row = mysqli_fetch_array($grupos_atos)) {
+                                echo '<form id="navform'.$row['ID_ATO_PROFISSAO'].'" action="atoprofissao.php" method="post">';
+                                echo '&nbsp&nbsp&nbsp<a href="javascript:;" onclick="document.getElementById(\'navform'.$row['ID_ATO_PROFISSAO'].'\').submit();">';
+                                echo '<li>'.$row['NUMERACAO_ATO'] . ' ' . $row['SIGLA'].'</li>';
+                                echo '</a>';
+                                echo '<input type="hidden" name="idato" value="'.$row['ID_ATO_PROFISSAO'].'">';
+                                echo '</form>';
+                            }
+                        }
+                    ?>
                 </ul>
             </li>
             <li>
