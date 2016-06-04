@@ -14,7 +14,7 @@
                     &nbsp;&nbsp;&nbsp;<a href="ato_ccsi.php">Conceção e Construção de Soluções Informáticas</a><br>
                     &nbsp;&nbsp;&nbsp;<a href="ato_tvsi.php">Teste e Validação de Soluções Informáticas</a><br>
                     &nbsp;&nbsp;&nbsp;<a href="ato_peiti.php">Planeamento e Exploração de Infra-Estruturas de Tecnologias de Informação</a><br>
-                    &nbsp;&nbsp;&nbsp;<a href="ato_gpsi.php">Gestão de Projectos de Sistemas de Informação</a><br>
+                    &nbsp;&nbsp;&nbsp;<a href="atoprofissao.php">Gestão de Projectos de Sistemas de Informação</a><br>
                     &nbsp;&nbsp;&nbsp;<a href="ato_pasi.php">Planeamento e Auditoria de Sistemas de Informação</a><br>
                     &nbsp;&nbsp;&nbsp;<a href="ato_iin.php">Investigação, Ensino e Normalização</a><br>
                     &nbsp;&nbsp;&nbsp;<a href="ato_mga.php">Manutenção e Gestão de Ativos</a><br>    

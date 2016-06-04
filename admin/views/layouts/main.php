@@ -15,7 +15,8 @@ AppAsset::register($this);
 <!DOCTYPE html>
 <html lang="<?= Yii::$app->language ?>">
 <head>
-    <meta charset="<?= Yii::$app->charset ?>">
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <?= Html::csrfMetaTags() ?>
     <title><?= Html::encode($this->title) ?></title>
@@ -34,7 +35,7 @@ AppAsset::register($this);
         ],        
     ]);
     if(!Yii::$app->user->isGuest) {
-        $menuItems[] = ['label' => 'Dados EstÃ¡ticos',
+        $menuItems[] = ['label' => 'Dados Estáticos',
                 'items' => [ 
                            ['label' => 'Carregar', 'url' => ['/site/dadosestaticos']],
                            ['label' => 'Descarregar', 'url' => ['/site/descarregardados']]
@@ -70,7 +71,7 @@ AppAsset::register($this);
                                 ['label' => 'Visualizar', 'url' => ['/unidade-curricular/index']]
                             ]
             ];
-        $menuItems[] = ['label' => 'Atos de ProfissÃ£o',
+        $menuItems[] = ['label' => 'Atos de Profissão',
                 'items' => [
                                 ['label' => 'Criar', 'url' => ['/ato-profissao/create']],
                                 ['label' => 'Visualizar', 'url' => ['/ato-profissao/index']]

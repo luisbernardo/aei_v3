@@ -13,6 +13,7 @@ use Yii;
  * @property string $DESIGNACAO
  * @property string $DESCRICAO
  * @property integer $ESTADO
+ * @property string $SIGLA
  *
  * @property AtoProfissao $fKIDPAI
  * @property AtoProfissao[] $atoProfissaos
@@ -38,6 +39,7 @@ class AtoProfissao extends \yii\db\ActiveRecord
             [['ID_ATO_PROFISSAO', 'FK_ID_PAI', 'ESTADO'], 'integer'],
             [['DESIGNACAO', 'DESCRICAO'], 'string'],
             [['NUMERACAO_ATO'], 'string', 'max' => 45],
+            [['SIGLA'], 'string', 'max' => 10],
             [['FK_ID_PAI'], 'exist', 'skipOnError' => true, 'targetClass' => AtoProfissao::className(), 'targetAttribute' => ['FK_ID_PAI' => 'ID_ATO_PROFISSAO']],
         ];
     }
@@ -48,12 +50,13 @@ class AtoProfissao extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'ID_ATO_PROFISSAO' => 'ID Ato de ProfissÃ£o',
+            'ID_ATO_PROFISSAO' => 'ID Ato de Profissão',
             'FK_ID_PAI' => 'ID Grupo Superior',
-            'NUMERACAO_ATO' => 'NumeraÃ§Ã£o do Ato',
-            'DESIGNACAO' => 'DesignaÃ§Ã£o',
-            'DESCRICAO' => 'DescriÃ§Ã£o',
+            'NUMERACAO_ATO' => 'Numeração do Ato',
+            'DESIGNACAO' => 'Designação',
+            'DESCRICAO' => 'Descrição',
             'ESTADO' => 'Estado',
+            'SIGLA' => 'Sigla'
         ];
     }
 

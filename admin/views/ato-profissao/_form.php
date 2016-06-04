@@ -25,6 +25,8 @@ use yii\widgets\ActiveForm;
     <?= $form->field($model, 'DESCRICAO')->textarea(['rows' => 6]) ?>
 
     <?= $form->field($model, 'ESTADO')->dropDownList(['0'=>'Inativo','1'=>'Ativo'],['prompt'=>'Select Category']) ?>
+    
+    <?= $form->field($model, 'SIGLA')->textInput(['maxlength' => true]) ?>
 
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>

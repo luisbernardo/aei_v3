@@ -18,8 +18,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
         <!-- Page Description and Author -->
-        <meta name="description" content="Margo - Responsive HTML5 Template">
-        <meta name="author" content="iThemesLab">
+        <meta name="description" content="AEI 2015/2016">
+        <meta name="author" content="Equipa 25">
 
         <!-- Bootstrap CSS  -->
         <link rel="stylesheet" href="asset/css/bootstrap.min.css" type="text/css" media="screen">
@@ -41,7 +41,7 @@
 
         <!-- Color CSS Styles  -->
         <link rel="stylesheet" type="text/css" href="css/colors/red.css" title="red" media="screen" />
-        <link rel="stylesheet" type="text/css" href="css/colors/jade.css" title="jade" media="screen" />
+<!--        <link rel="stylesheet" type="text/css" href="css/colors/jade.css" title="jade" media="screen" />
         <link rel="stylesheet" type="text/css" href="css/colors/green.css" title="green" media="screen" />
         <link rel="stylesheet" type="text/css" href="css/colors/blue.css" title="blue" media="screen" />
         <link rel="stylesheet" type="text/css" href="css/colors/beige.css" title="beige" media="screen" />
@@ -51,7 +51,7 @@
         <link rel="stylesheet" type="text/css" href="css/colors/pink.css" title="pink" media="screen" />
         <link rel="stylesheet" type="text/css" href="css/colors/purple.css" title="purple" media="screen" />
         <link rel="stylesheet" type="text/css" href="css/colors/sky-blue.css" title="sky-blue" media="screen" />
-        <link rel="stylesheet" type="text/css" href="css/colors/yellow.css" title="yellow" media="screen" />
+        <link rel="stylesheet" type="text/css" href="css/colors/yellow.css" title="yellow" media="screen" />-->
 
         <!-- Margo JS  -->
         <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>

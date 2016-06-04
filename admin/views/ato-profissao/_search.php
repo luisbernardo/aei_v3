@@ -24,6 +24,8 @@ use yii\widgets\ActiveForm;
     <?= $form->field($model, 'DESIGNACAO') ?>
 
     <?= $form->field($model, 'DESCRICAO') ?>
+    
+    <?= $form->field($model, 'SIGLA')?>
 
     <?php // echo $form->field($model, 'ESTADO') ?>
 

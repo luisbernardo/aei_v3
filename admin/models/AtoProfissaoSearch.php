@@ -62,11 +62,13 @@ class AtoProfissaoSearch extends AtoProfissao
             'ID_ATO_PROFISSAO' => $this->ID_ATO_PROFISSAO,
             'FK_ID_PAI' => $this->FK_ID_PAI,
             'ESTADO' => $this->ESTADO,
+            'SIGLA' => $this->SIGLA
         ]);
 
         $query->andFilterWhere(['like', 'NUMERACAO_ATO', $this->NUMERACAO_ATO])
             ->andFilterWhere(['like', 'DESIGNACAO', $this->DESIGNACAO])
-            ->andFilterWhere(['like', 'DESCRICAO', $this->DESCRICAO]);
+            ->andFilterWhere(['like', 'DESCRICAO', $this->DESCRICAO])
+            ->andFilterWhere(['like', 'SIGLA', $this->SIGLA]);
 
         return $dataProvider;
     }

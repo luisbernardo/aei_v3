@@ -120,7 +120,7 @@ include 'funcoes.php';
             <div class="container">
                 <div class="row">
                     <!-- Start Service Icon 1 -->
-                    <form id="formulario7" action="ato_gpsi.php" method="post">
+                    <form id="formulario7" action="atoprofissao.php" method="post">
                         <div class="col-md-3 col-sm-6 service-box service-center" data-animation="fadeIn" data-animation-delay="01">
                             <a href="javascript:;" onclick="document.getElementById('formulario7').submit();">
                                 <div class="service-icon">
@@ -136,7 +136,7 @@ include 'funcoes.php';
                     <!-- End Service Icon 1 -->
 
                     <!-- Start Service Icon 2 -->
-                    <form id="formulario8" action="ato_gpsi.php" method="post">
+                    <form id="formulario8" action="atoprofissao.php" method="post">
                         <div class="col-md-3 col-sm-6 service-box service-center" data-animation="fadeIn" data-animation-delay="02">
                             <a href="javascript:;" onclick="document.getElementById('formulario8').submit();">
                                 <div class="service-icon">
@@ -152,7 +152,7 @@ include 'funcoes.php';
                     <!-- End Service Icon 2 -->
 
                     <!-- Start Service Icon 3 -->
-                    <form id="formulario9" action="ato_gpsi.php" method="post">
+                    <form id="formulario9" action="atoprofissao.php" method="post">
                         <div class="col-md-3 col-sm-6 service-box service-center" data-animation="fadeIn" data-animation-delay="03">
                             <a href="javascript:;" onclick="document.getElementById('formulario9').submit();">
                                 <div class="service-icon">
@@ -168,7 +168,7 @@ include 'funcoes.php';
                     <!-- End Service Icon 3 -->
 
                     <!-- Start Service Icon 4 -->
-                    <form id="formulario10" action="ato_gpsi.php" method="post">
+                    <form id="formulario10" action="atoprofissao.php" method="post">
                         <div class="col-md-3 col-sm-6 service-box service-center" data-animation="fadeIn" data-animation-delay="04">
                             <a href="javascript:;" onclick="document.getElementById('formulario10').submit();">
                                 <div class="service-icon">
@@ -184,7 +184,7 @@ include 'funcoes.php';
                     <!-- End Service Icon 4 -->
 
                     <!-- Start Service Icon 5 -->
-                    <form id="formulario11" action="ato_gpsi.php" method="post">
+                    <form id="formulario11" action="atoprofissao.php" method="post">
                         <div class="col-md-3 col-sm-6 service-box service-center" data-animation="fadeIn" data-animation-delay="05">
                             <a href="javascript:;" onclick="document.getElementById('formulario11').submit();">
                                 <div class="service-icon">
@@ -200,7 +200,7 @@ include 'funcoes.php';
                     <!-- End Service Icon 5 -->
 
                     <!-- Start Service Icon 6 -->
-                    <form id="formulario12" action="ato_gpsi.php" method="post">
+                    <form id="formulario12" action="atoprofissao.php" method="post">
                         <div class="col-md-3 col-sm-6 service-box service-center" data-animation="fadeIn" data-animation-delay="06">
                             <a href="javascript:;" onclick="document.getElementById('formulario12').submit();">
                                 <div class="service-icon">
@@ -217,7 +217,7 @@ include 'funcoes.php';
 
                     <!-- Start Service Icon 7 -->
                     <div class="col-md-3 col-sm-6 service-box service-center" data-animation="fadeIn" data-animation-delay="07">
-                        <a href="ato_gpsi.php">
+                        <a href="atoprofissao.php">
                             <div class="service-icon">
                                 <i class="fa fa-download icon-large"></i>
                             </div>
@@ -230,7 +230,7 @@ include 'funcoes.php';
 
                     <!-- Start Service Icon 8 -->
                     <div class="col-md-3 col-sm-6 service-box service-center" data-animation="fadeIn" data-animation-delay="08">
-                        <a href="ato_gpsi.php">
+                        <a href="atoprofissao.php">
                             <div class="service-icon">
                                 <i class="fa fa-hdd-o icon-large"></i>
                             </div>

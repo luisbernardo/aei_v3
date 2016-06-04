@@ -74,7 +74,7 @@ include 'funcoes.php';
                             <h4 class="classic-title"><span>Grupos de Atos</span></h4>
                             <div class="row">
                                 <!-- Start Service Icon 1 -->
-                                <form id="formulario1" action="ato_gpsi.php" method="post">
+                                <form id="formulario1" action="atoprofissao.php" method="post">
                                     <div class="col-md-3 col-sm-6 service-box service-center" data-animation="fadeIn" data-animation-delay="01">
                                         <a href="javascript:;" onclick="document.getElementById('formulario1').submit();">
                                             <div class="service-icon">
@@ -90,7 +90,7 @@ include 'funcoes.php';
                                 <!-- End Service Icon 1 -->
 
                                 <!-- Start Service Icon 2 -->
-                                <form id="formulario2" action="ato_gpsi.php" method="post">
+                                <form id="formulario2" action="atoprofissao.php" method="post">
                                     <div class="col-md-3 col-sm-6 service-box service-center" data-animation="fadeIn" data-animation-delay="02">
                                         <a href="javascript:;" onclick="document.getElementById('formulario2').submit();">
                                             <div class="service-icon">
@@ -106,7 +106,7 @@ include 'funcoes.php';
                                 <!-- End Service Icon 2 -->
 
                                 <!-- Start Service Icon 3 -->
-                                <form id="formulario3" action="ato_gpsi.php" method="post">
+                                <form id="formulario3" action="atoprofissao.php" method="post">
                                     <div class="col-md-3 col-sm-6 service-box service-center" data-animation="fadeIn" data-animation-delay="03">
                                         <a href="javascript:;" onclick="document.getElementById('formulario3').submit();">
                                             <div class="service-icon">
@@ -122,7 +122,7 @@ include 'funcoes.php';
                                 <!-- End Service Icon 3 -->
 
                                 <!-- Start Service Icon 4 -->
-                                <form id="formulario4" action="ato_gpsi.php" method="post">
+                                <form id="formulario4" action="atoprofissao.php" method="post">
                                     <div class="col-md-3 col-sm-6 service-box service-center" data-animation="fadeIn" data-animation-delay="04">
                                         <a href="javascript:;" onclick="document.getElementById('formulario4').submit();">
                                             <div class="service-icon">
@@ -138,7 +138,7 @@ include 'funcoes.php';
                                 <!-- End Service Icon 4 -->
 
                                 <!-- Start Service Icon 5 -->
-                                <form id="formulario5" action="ato_gpsi.php" method="post">
+                                <form id="formulario5" action="atoprofissao.php" method="post">
                                     <div class="col-md-3 col-sm-6 service-box service-center" data-animation="fadeIn" data-animation-delay="05">
                                         <a href="javascript:;" onclick="document.getElementById('formulario5').submit();">
                                             <div class="service-icon">
@@ -154,7 +154,7 @@ include 'funcoes.php';
                                 <!-- End Service Icon 5 -->
 
                                 <!-- Start Service Icon 6 -->
-                                <form id="formulario6" action="ato_gpsi.php" method="post">
+                                <form id="formulario6" action="atoprofissao.php" method="post">
                                     <div class="col-md-3 col-sm-6 service-box service-center" data-animation="fadeIn" data-animation-delay="06">
                                         <a href="javascript:;" onclick="document.getElementById('formulario6').submit();">
                                             <div class="service-icon">

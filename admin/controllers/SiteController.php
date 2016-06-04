@@ -70,6 +70,8 @@ class SiteController extends Controller
     public function ligar_bd()
     {
         $link = mysqli_connect("localhost", "root", "", "ptsi");
+        mysqli_query($link,"SET NAMES utf8");
+        mysqli_set_charset($link, "uft8");
         return $link;
     }
     
@@ -112,10 +114,11 @@ class SiteController extends Controller
             $model->isUploaded = true;
             $file = $model;
             if ($model->upload()) {
+                $ligacao = $this->ligar_bd();
                 $ficheiro = Yii::getAlias("@webroot") . "/ficheiros/EXCEL_BD_DADOS." . $file->excelFile->getExtension();
                 $objPHPExcel = \PHPExcel_IOFactory::load($ficheiro);
                 $count = 1;
-                $query = "DELETE FROM `unidade_curricular`; DELETE FROM `curso`; DELETE FROM `entidade`;";
+                $query = "DELETE FROM `unidade_curricular`; DELETE FROM `curso`; DELETE FROM `entidade`; DELETE FROM `ato_profissao`;";
                 foreach($objPHPExcel->getWorksheetIterator() as $worksheet) {
                     $worksheetTitle = $worksheet->getTitle();
                     $highestrow = $worksheet->getHighestRow();
@@ -130,7 +133,7 @@ class SiteController extends Controller
                     } else if($count == 3) {
                         $highestcolindex = 7;
                     } else {
-                        $highestcolindex = 7;
+                        $highestcolindex = 8;
                     }
                     for ($row = 2; $row <= $highestrow; ++ $row) {
                         $isNullRow = false;
@@ -141,7 +144,7 @@ class SiteController extends Controller
                             if($dataType == "null") {
                                 $isNullRow = true;                               
                             } else {
-                                $query .= "'" . mysql_real_escape_string($val) . "', ";
+                                $query .= "'" . mysqli_real_escape_string($ligacao, $val) . "', ";
                             }
                         }
                         if($isNullRow) {
@@ -156,7 +159,6 @@ class SiteController extends Controller
                     $count += 1;
                 }
             }
-            $ligacao = $this->ligar_bd();
             if(mysqli_multi_query($ligacao, $query)) {
                 $query2 = "INSERT INTO `AUDIT_TRAIL` (`DATA_ALTERACAO`, `DESC_ALTERACAO`) VALUES ('". time() ."', 'Nova introducao dados');";
                 if(mysqli_query($ligacao, $query2)) {
@@ -168,7 +170,7 @@ class SiteController extends Controller
                 echo mysqli_error($ligacao) ."<br>";
             }
             mysqli_close($ligacao);
-            return $this->render('dadosestaticos', ['model' => $model]);
+             return $this->render('dadosestaticos', ['model' => $model]);
         } else {
             return $this->render('dadosestaticos', ['model' => $model]);
         }
@@ -194,23 +196,5 @@ class SiteController extends Controller
         Yii::$app->user->logout();
 
         return $this->goHome();
-    }
-
-    public function actionContact()
-    {
-        $model = new ContactForm();
-        if ($model->load(Yii::$app->request->post()) && $model->contact(Yii::$app->params['adminEmail'])) {
-            Yii::$app->session->setFlash('contactFormSubmitted');
-
-            return $this->refresh();
-        }
-        return $this->render('contact', [
-            'model' => $model,
-        ]);
-    }
-
-    public function actionAbout()
-    {
-        return $this->render('about');
     }
 }

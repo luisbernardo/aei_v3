@@ -7,7 +7,7 @@ use yii\widgets\DetailView;
 /* @var $model app\models\AtoProfissao */
 
 $this->title = $model->ID_ATO_PROFISSAO;
-$this->params['breadcrumbs'][] = ['label' => 'Ato Profissaos', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => 'Ato Profissão', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="ato-profissao-view">
