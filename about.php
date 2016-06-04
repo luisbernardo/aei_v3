@@ -1,4 +1,6 @@
-<?php include 'head.php'; ?>
+<?php
+include 'head.php';
+?>
 
 <body>
 
@@ -33,7 +35,7 @@
             <div class="container">
                 <div class="page-content">
 
-                    
+
 
                 </div>
             </div>

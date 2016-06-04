@@ -1,4 +1,9 @@
-<?php include 'head.php'; ?>
+<?php
+include 'head.php';
+include 'funcoes.php';
+$curso = $_POST['idcurso'];
+echo $curso;
+?>
 <script src="http://maps.googleapis.com/maps/api/js?sensor=false" type="text/javascript"></script>
 
 <body>
@@ -13,14 +18,32 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-6">
-                        <h2>Mestrado Integrado em Engenharia e Gestão de Sistemas de Informação</h2>
-                        <p>Universidade do Minho</p>
+                        <?php
+                        $info_curso = get_curso($curso);
+                        if (mysql_num_rows($info_curso) > 0) {
+                            while ($row = mysql_fetch_array($info_curso)) {
+                                $nome_univ = get_universidade($row['FK_ID_ENTIDADE']);
+                                echo '<h2>' . $row['NOME'] . '</h2>';
+                                while ($row2 = mysql_fetch_array($nome_univ)) {
+
+                                    echo '<p>' . $row2['NOME'] . '</p>';
+                                }
+                            }
+                        }
+                        ?>
                     </div>
                     <div class="col-md-6">
                         <ul class="breadcrumbs">
                             <li><a href="index.php">Ínicio</a></li>
                             <li><a href="cursos.php">Cursos</a></li>
-                            <li>MIEGSI</li>
+                            <li><?php
+                                $sigla_curso = get_curso($curso);
+                                if (mysql_num_rows($sigla_curso) > 0) {
+                                    while ($row = mysql_fetch_array($sigla_curso)) {
+                                        echo $row['SIGLA'];
+                                    }
+                                }
+                                ?></li>
                         </ul>
                     </div>
                 </div>
@@ -47,15 +70,32 @@
                     <!-- Start Project Content -->
                     <div class="project-content col-md-4">
                         <h4><span>Instituição de Ensino</span></h4>
-                        <p>Universidade do Minho</p>
+                        <p><?php
+                            $nome_curso2 = get_curso($curso);
+                            if (mysql_num_rows($nome_curso2) > 0) {
+                                while ($row = mysql_fetch_array($nome_curso2)) {
+                                    $nome_univ = get_universidade($row['FK_ID_ENTIDADE']);
+                                    while ($row2 = mysql_fetch_array($nome_univ)) {
+                                        echo $row2['NOME'];
+                                    }
+                                }
+                            }
+                            ?></p>
                         <h4><span>Curso</span></h4>
-                        <ul>
-                            <li><strong>Designação:</strong> Mestrado Integrado em Engenharia e Gestão de Sistemas de Informação</li>
-                            <li><strong>Grau Académico:</strong> Licenciado (pós-Bolonha); Mestre</li>
-                            <li><strong>ECTS:</strong> 300</li>
-                            <li><strong>Duração:</strong> 10 semestres letivos</li>
-                            <li><strong>Regime:</strong> Normal</li>
-                            <li><strong>Local:</strong> Campus de Azúrem, Guimarães</li>
+                        <ul><?php
+                            $designacao_curso = get_curso($curso);
+                            if (mysql_num_rows($designacao_curso) > 0) {
+                                while ($row = mysql_fetch_array($designacao_curso)) {
+                                    echo '<li><strong>Designação: </strong>' . $row['NOME'] . '</li>';
+                                    echo '<li><strong>Grau Académico: </strong >' . $row['GRAU'] . '</li>';
+                                    echo '<li><strong>ECTS: </strong>' . $row['ECTS'] . '</li>';
+                                    echo '<li><strong>Duração: </strong>' . $row['DURACAO'] . '</li>';
+                                    echo '<li><strong>Regime: </strong>' . $row['REGIME'] . '</li>';
+                                    echo '<li><strong>Local: </strong>' . $row['LOCAL'] . '</li>';
+                                }
+                            }
+                            ?>
+
                         </ul>
                     </div>
                     <!-- End Project Content -->
@@ -70,16 +110,26 @@
                         <!-- Single Testimonial -->
                         <div class="classic-testimonials">
                             <div class="testimonial-content">
-                                <p>O papel dos engenheiros e gestores de sistemas de informação é o de usarem as Tecnologias de Informação (TI) 
-                                    e suas aplicações em benefício das organizações. Os artefactos informáticos são um meio para a melhoria do 
-                                    funcionamento das organizações.Os principais atos de profissão ao alcance dos mestres em EGSI incluem: 
-                                    intervenções organizacionais relacionadas com a adopção de TI; gestão das tecnologias e dos sistemas de 
-                                    informação organizacionais; engenharia do trabalho e dos processos organizacionais; gestão do conhecimento 
-                                    organizacional. Estes graduados possuem ainda competências de concretização tecnológica que lhes permite 
-                                    envolverem-se também em atos de profissão relacionados com a construção de aplicações informáticas ou do 
-                                    estabelecimento da infraestrutura TI da organização.</p>
+                                <p><?php
+                                    $descricao_curso = get_curso($curso);
+                                    if (mysql_num_rows($descricao_curso) > 0) {
+                                        while ($row = mysql_fetch_array($descricao_curso)) {
+                                            echo $row['DESCRICAO'];
+                                        }
+                                    }
+                                    ?></p>
                             </div>
-                            <div class="testimonial-author"><span>Universidade do Minho</span> - <a href="http://www.uminho.pt/">www.uminho.pt</a></div>
+                            <?php
+                            $site_curso = get_curso($curso);
+                            if (mysql_num_rows($site_curso) > 0) {
+                                while ($row = mysql_fetch_array($site_curso)) {
+                                    $nome_univ = get_universidade($row['FK_ID_ENTIDADE']);
+                                    while ($row2 = mysql_fetch_array($nome_univ)) {
+                                        echo'<div class="testimonial-author"><span>' . $row2['NOME'] . '</span> - <a href=http://' . $row2['WEBSITE'] . '>' . $row2['WEBSITE'] . '</a></div>';
+                                    }
+                                }
+                            }
+                            ?>
                         </div>
                     </div>
                 </div>
@@ -91,8 +141,8 @@
             <!-- Start Map -->
             <div id="map" data-position-latitude="41.453090" data-position-longitude="-8.289196"></div>
             <script>
-                (function ($) {
-                    $.fn.CustomMap = function (options) {
+                (function($) {
+                    $.fn.CustomMap = function(options) {
 
                         var posLatitude = $('#map').data('position-latitude'),
                                 posLongitude = $('#map').data('position-longitude');
@@ -109,7 +159,7 @@
 
                         var coords = new google.maps.LatLng(settings.home.latitude, settings.home.longitude);
 
-                        return this.each(function () {
+                        return this.each(function() {
                             var element = $(this);
 
                             var options = {
@@ -145,7 +195,7 @@
                                 content: settings.text
                             });
 
-                            google.maps.event.addListener(marker, 'click', function () {
+                            google.maps.event.addListener(marker, 'click', function() {
                                 info.open(map, marker);
                             });
 
@@ -234,7 +284,7 @@
                     };
                 }(jQuery));
 
-                jQuery(document).ready(function () {
+                jQuery(document).ready(function() {
                     jQuery('#map').CustomMap();
                 });
             </script>
@@ -264,7 +314,16 @@
                                         </h4>
                                     </div>
                                     <div id="collapse-4" class="panel-collapse collapse in">
-                                        <div class="panel-body">Duis ute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like <strong>readable English</strong>. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore...</div>
+                                        <div class="panel-body">
+                                            <?php
+                                            $uc_1ano = get_info_uc_1ano($curso);
+                                            if (mysql_num_rows($uc_1ano) > 0) {
+                                                while ($row = mysql_fetch_array($uc_1ano)) {
+                                                    echo "<p>" . $row['ECTS'] . " ECTS - " . $row['NOME'] . "</p>";
+                                                }
+                                            }
+                                            ?>
+                                        </div>
                                     </div>
                                 </div>
                                 <!-- End Accordion 1 -->
@@ -280,7 +339,16 @@
                                         </h4>
                                     </div>
                                     <div id="collapse-5" class="panel-collapse collapse">
-                                        <div class="panel-body">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. The point of using Lorem Ipsum is that it has a <strong>more-or-less</strong> normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore...</div>
+                                        <div class="panel-body">
+                                            <?php
+                                            $uc_2ano = get_info_uc_2ano($curso);
+                                            if (mysql_num_rows($uc_2ano) > 0) {
+                                                while ($row = mysql_fetch_array($uc_2ano)) {
+                                                    echo "<p>" . $row['ECTS'] . " ECTS - " . $row['NOME'] . "</p>";
+                                                }
+                                            }
+                                            ?>
+                                        </div>
                                     </div>
                                 </div>
                                 <!-- End Accordion 2 -->
@@ -296,7 +364,16 @@
                                         </h4>
                                     </div>
                                     <div id="collapse-6" class="panel-collapse collapse">
-                                        <div class="panel-body"><strong>Duis</strong> aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore...</div>
+                                        <div class="panel-body">
+                                            <?php
+                                            $uc_3ano = get_info_uc_3ano($curso);
+                                            if (mysql_num_rows($uc_3ano) > 0) {
+                                                while ($row = mysql_fetch_array($uc_3ano)) {
+                                                    echo "<p>" . $row['ECTS'] . " ECTS - " . $row['NOME'] . "</p>";
+                                                }
+                                            }
+                                            ?>
+                                        </div>
                                     </div>
                                 </div>
                                 <!-- End Accordion 3 -->
@@ -312,7 +389,16 @@
                                         </h4>
                                     </div>
                                     <div id="collapse-7" class="panel-collapse collapse">
-                                        <div class="panel-body"><strong>Duis</strong> aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore...</div>
+                                        <div class="panel-body">
+                                            <?php
+                                            $uc_4ano = get_info_uc_4ano($curso);
+                                            if (mysql_num_rows($uc_4ano) > 0) {
+                                                while ($row = mysql_fetch_array($uc_4ano)) {
+                                                    echo "<p>" . $row['ECTS'] . " ECTS - " . $row['NOME'] . "</p>";
+                                                }
+                                            }
+                                            ?>
+                                        </div>
                                     </div>
                                 </div>
                                 <!-- End Accordion 4 -->
@@ -328,7 +414,16 @@
                                         </h4>
                                     </div>
                                     <div id="collapse-8" class="panel-collapse collapse">
-                                        <div class="panel-body"><strong>Duis</strong> aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore...</div>
+                                        <div class="panel-body">
+                                            <?php
+                                            $uc_5ano = get_info_uc_5ano($curso);
+                                            if (mysql_num_rows($uc_5ano) > 0) {
+                                                while ($row = mysql_fetch_array($uc_5ano)) {
+                                                    echo "<p>" . $row['ECTS'] . " ECTS - " . $row['NOME'] . "</p>";
+                                                }
+                                            }
+                                            ?>
+                                        </div>
                                     </div>
                                 </div>
                                 <!-- End Accordion 5 -->

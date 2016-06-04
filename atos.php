@@ -1,4 +1,7 @@
-<?php include 'head.php'; ?>
+<?php 
+include 'head.php'; 
+include 'funcoes.php';
+?>
 
 <body>
 
@@ -71,81 +74,99 @@
                             <h4 class="classic-title"><span>Grupos de Atos</span></h4>
                             <div class="row">
                                 <!-- Start Service Icon 1 -->
-                                <div class="col-md-3 col-sm-6 service-box service-center" data-animation="fadeIn" data-animation-delay="01">
-                                    <a href="ato_ader.php">
-                                        <div class="service-icon">
-                                            <i class="fa fa-search icon-large"></i>
-                                        </div>
-                                        <div class="service-content">
-                                            <h4>Análise de Domínio e Engenharia de Requisitos</h4>
-                                        </div>
-                                    </a>
-                                </div>
+                                <form id="formulario1" action="ato_gpsi.php" method="post">
+                                    <div class="col-md-3 col-sm-6 service-box service-center" data-animation="fadeIn" data-animation-delay="01">
+                                        <a href="javascript:;" onclick="document.getElementById('formulario1').submit();">
+                                            <div class="service-icon">
+                                                <i class="fa fa-search icon-large"></i>
+                                            </div>
+                                            <div class="service-content">
+                                                <h4>Análise de Domínio e Engenharia de Requisitos</h4>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <input type="hidden" name="idato" value="1">
+                                </form>
                                 <!-- End Service Icon 1 -->
 
                                 <!-- Start Service Icon 2 -->
-                                <div class="col-md-3 col-sm-6 service-box service-center" data-animation="fadeIn" data-animation-delay="02">
-                                    <a href="ato_ccsi.php">
-                                        <div class="service-icon">
-                                            <i class="fa fa-pencil icon-large"></i>
-                                        </div>
-                                        <div class="service-content">
-                                            <h4>Conceção e Construção de Soluções Informáticas</h4>
-                                        </div>
-                                    </a>
-                                </div>
+                                <form id="formulario2" action="ato_gpsi.php" method="post">
+                                    <div class="col-md-3 col-sm-6 service-box service-center" data-animation="fadeIn" data-animation-delay="02">
+                                        <a href="javascript:;" onclick="document.getElementById('formulario2').submit();">
+                                            <div class="service-icon">
+                                                <i class="fa fa-pencil icon-large"></i>
+                                            </div>
+                                            <div class="service-content">
+                                                <h4>Conceção e Construção de Soluções Informáticas</h4>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <input type="hidden" name="idato" value="23">
+                                </form>
                                 <!-- End Service Icon 2 -->
 
                                 <!-- Start Service Icon 3 -->
-                                <div class="col-md-3 col-sm-6 service-box service-center" data-animation="fadeIn" data-animation-delay="03">
-                                    <a href="ato_tvsi.php">
-                                        <div class="service-icon">
-                                            <i class="fa fa-wrench icon-large"></i>
-                                        </div>
-                                        <div class="service-content">
-                                            <h4>Teste e Validação de Soluções Informáticas</h4>
-                                        </div>
-                                    </a>
-                                </div>
+                                <form id="formulario3" action="ato_gpsi.php" method="post">
+                                    <div class="col-md-3 col-sm-6 service-box service-center" data-animation="fadeIn" data-animation-delay="03">
+                                        <a href="javascript:;" onclick="document.getElementById('formulario3').submit();">
+                                            <div class="service-icon">
+                                                <i class="fa fa-wrench icon-large"></i>
+                                            </div>
+                                            <div class="service-content">
+                                                <h4>Teste e Validação de Soluções Informáticas</h4>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <input type="hidden" name="idato" value="42">
+                                </form>
                                 <!-- End Service Icon 3 -->
 
                                 <!-- Start Service Icon 4 -->
-                                <div class="col-md-3 col-sm-6 service-box service-center" data-animation="fadeIn" data-animation-delay="04">
-                                    <a href="ato_peiti.php">
-                                        <div class="service-icon">
-                                            <i class="fa fa-signal icon-large"></i>
-                                        </div>
-                                        <div class="service-content">
-                                            <h4>Planeamento e Exploração de Infra-Estruturas de Tecnologias de Informação</h4>
-                                        </div>
-                                    </a>
-                                </div>
+                                <form id="formulario4" action="ato_gpsi.php" method="post">
+                                    <div class="col-md-3 col-sm-6 service-box service-center" data-animation="fadeIn" data-animation-delay="04">
+                                        <a href="javascript:;" onclick="document.getElementById('formulario4').submit();">
+                                            <div class="service-icon">
+                                                <i class="fa fa-signal icon-large"></i>
+                                            </div>
+                                            <div class="service-content">
+                                                <h4>Planeamento e Exploração de Infra-Estruturas de Tecnologias de Informação</h4>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <input type="hidden" name="idato" value="54">
+                                </form>
                                 <!-- End Service Icon 4 -->
 
                                 <!-- Start Service Icon 5 -->
-                                <div class="col-md-3 col-sm-6 service-box service-center" data-animation="fadeIn" data-animation-delay="05">
-                                    <a href="ato_gpsi.php">
-                                        <div class="service-icon">
-                                            <i class="fa fa-list-alt icon-large"></i>
-                                        </div>
-                                        <div class="service-content">
-                                            <h4>Gestão de Projectos de Sistemas de Informação</h4>
-                                        </div>
-                                    </a>
-                                </div>
+                                <form id="formulario5" action="ato_gpsi.php" method="post">
+                                    <div class="col-md-3 col-sm-6 service-box service-center" data-animation="fadeIn" data-animation-delay="05">
+                                        <a href="javascript:;" onclick="document.getElementById('formulario5').submit();">
+                                            <div class="service-icon">
+                                                <i class="fa fa-list-alt icon-large"></i>
+                                            </div>
+                                            <div class="service-content">
+                                                <h4>Gestão de Projectos de Sistemas de Informação</h4>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <input type="hidden" name="idato" value="72">
+                                </form>
                                 <!-- End Service Icon 5 -->
 
                                 <!-- Start Service Icon 6 -->
-                                <div class="col-md-3 col-sm-6 service-box service-center" data-animation="fadeIn" data-animation-delay="06">
-                                    <a href="ato_pasi.php">
-                                        <div class="service-icon">
-                                            <i class="fa fa-eye icon-large"></i>
-                                        </div>
-                                        <div class="service-content">
-                                            <h4>Planeamento e Auditoria de Sistemas de Informação</h4>
-                                        </div>
-                                    </a>
-                                </div>
+                                <form id="formulario6" action="ato_gpsi.php" method="post">
+                                    <div class="col-md-3 col-sm-6 service-box service-center" data-animation="fadeIn" data-animation-delay="06">
+                                        <a href="javascript:;" onclick="document.getElementById('formulario6').submit();">
+                                            <div class="service-icon">
+                                                <i class="fa fa-eye icon-large"></i>
+                                            </div>
+                                            <div class="service-content">
+                                                <h4>Planeamento e Auditoria de Sistemas de Informação</h4>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <input type="hidden" name="idato" value="92">
+                                </form>
                                 <!-- End Service Icon 6 -->
 
                                 <!-- Start Service Icon 7 -->
