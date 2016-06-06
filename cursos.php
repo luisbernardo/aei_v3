@@ -37,167 +37,112 @@ include 'funcoes.php';
                 <!-- Page Content -->
                 <div class="col-md-12 page-content">
 
-                    <div class="tabs-section">
+                    <form id="form1" action="cursos.php" method="post">
+                        <div class="row" style="padding-bottom: 1%">
+                            <div class="col-md-12">
+                                <!-- Classic Heading -->
+                                <div class="row">
 
-                        <!-- Nav Tabs -->
-                        <ul class="nav nav-tabs">
-                            <li class="active"><a href="#tab-1" data-toggle="tab"></i>Pesquisa Avançada</a></li>
-                            <li><a href="#tab-2" data-toggle="tab"></i>Pesquisa por Ato(s)</a></li>
-                        </ul>
-
-                        <!-- Tab panels -->
-                        <div class="tab-content">
-                            <!-- Tab Content 1 -->
-                            <div class="tab-pane fade in active" id="tab-1">
-
-                                <form id="form1" action="cursos.php" method="post">
-                                    <div class="row" style="padding-bottom: 1%">
-                                        <div class="col-md-12">
-                                            <!-- Classic Heading -->
-                                            <div class="row">
-
-                                                <div class="col-md-12">
-                                                    <h5 class="classic-title" style="margin-bottom: 0px;" >Localização</h5>
-                                                </div>
-                                                <div class="col-md-6 col-sm-6">
-                                                    <div class="checkbox">
-                                                        <label><input type="checkbox" name="cidade[]" value="Aveiro">Aveiro</label>
-                                                    </div>
-                                                    <div class="checkbox">
-                                                        <label><input type="checkbox" name="cidade[]" value="Braga">Braga</label>
-                                                    </div>
-                                                    <div class="checkbox">
-                                                        <label><input type="checkbox" name="cidade[]" value="Bragança">Bragança</label>
-                                                    </div>
-                                                    <div class="checkbox">
-                                                        <label><input type="checkbox" name="cidade[]" value="Castelo Branco">Castelo Branco</label>
-                                                    </div>
-                                                    <div class="checkbox">
-                                                        <label><input type="checkbox" name="cidade[]" value="Coimbra">Coimbra</label>
-                                                    </div>
-                                                    <div class="checkbox">
-                                                        <label><input type="checkbox" name="cidade[]" value="Évora">Évora</label>
-                                                    </div>
-                                                    <div class="checkbox">
-                                                        <label><input type="checkbox" name="cidade[]" value="Guarda">Guarda</label>
-                                                    </div>
-                                                    <div class="checkbox">
-                                                        <label><input type="checkbox" name="cidade[]" value="Leiria">Leiria</label>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-6 col-sm-6">
-                                                    <div class="checkbox">
-                                                        <label><input type="checkbox" name="cidade[]" value="Lisboa">Lisboa</label>
-                                                    </div>
-                                                    <div class="checkbox">
-                                                        <label><input type="checkbox" name="cidade[]" value="Portalegre">Portalegre</label>
-                                                    </div>
-                                                    <div class="checkbox">
-                                                        <label><input type="checkbox" name="cidade[]" value="Santarém">Santarém</label>
-                                                    </div>
-                                                    <div class="checkbox">
-                                                        <label><input type="checkbox" name="cidade[]" value="Viana do Castelo">Viana do Castelo</label>
-                                                    </div>
-                                                    <div class="checkbox">
-                                                        <label><input type="checkbox" name="cidade[]" value="Vila Real">Vila Real</label>
-                                                    </div>
-                                                    <div class="checkbox">
-                                                        <label><input type="checkbox" name="cidade[]" value="Viseu">Viseu</label>
-                                                    </div>
-                                                    <div class="checkbox">
-                                                        <label><input type="checkbox" name="cidade[]" value="Açores">Açores</label>
-                                                    </div>
-                                                    <div class="checkbox">
-                                                        <label><input type="checkbox" name="cidade[]" value="Madeira">Madeira</label>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                    <div class="col-md-12">
+                                        <h5 class="classic-title" style="margin-bottom: 0px;" >Localização</h5>
+                                    </div>
+                                    <div class="col-md-6 col-sm-6">
+                                        <div class="checkbox">
+                                            <label><input type="checkbox" name="cidade[]" value="Aveiro">Aveiro</label>
+                                        </div>
+                                        <div class="checkbox">
+                                            <label><input type="checkbox" name="cidade[]" value="Braga">Braga</label>
+                                        </div>
+                                        <div class="checkbox">
+                                            <label><input type="checkbox" name="cidade[]" value="Bragança">Bragança</label>
+                                        </div>
+                                        <div class="checkbox">
+                                            <label><input type="checkbox" name="cidade[]" value="Castelo Branco">Castelo Branco</label>
+                                        </div>
+                                        <div class="checkbox">
+                                            <label><input type="checkbox" name="cidade[]" value="Coimbra">Coimbra</label>
+                                        </div>
+                                        <div class="checkbox">
+                                            <label><input type="checkbox" name="cidade[]" value="Évora">Évora</label>
+                                        </div>
+                                        <div class="checkbox">
+                                            <label><input type="checkbox" name="cidade[]" value="Guarda">Guarda</label>
+                                        </div>
+                                        <div class="checkbox">
+                                            <label><input type="checkbox" name="cidade[]" value="Leiria">Leiria</label>
                                         </div>
                                     </div>
-
-                                    <div class="row" style="padding-bottom: 1%">
-                                        <div class="col-md-6 col-sm-6">
-                                            <h5 class="classic-title" style="margin-bottom: 0px;">Ciclo de estudos</h5>
-                                            <div class="checkbox">
-                                                <label><input type="checkbox" name="grau[]" value="1">Licenciatura</label>
-                                            </div>
-                                            <div class="checkbox">
-                                                <label><input type="checkbox" name="grau[]" value="2">Mestrado Integrado</label>
-                                            </div>
-                                            <div class="checkbox">
-                                                <label><input type="checkbox" name="grau[]" value="3">Mestrado</label>
-                                            </div>
+                                    <div class="col-md-6 col-sm-6">
+                                        <div class="checkbox">
+                                            <label><input type="checkbox" name="cidade[]" value="Lisboa">Lisboa</label>
                                         </div>
-                                        <div class="col-md-6 col-sm-6">
-                                            <h5 class="classic-title" style="margin-bottom: 0px;">Regime</h5>
-                                            <div class="checkbox">
-                                                <label><input type="checkbox" name="regime[]" value="Normal">Normal</label>
-                                            </div>
-                                            <div class="checkbox">
-                                                <label><input type="checkbox" name="regime[]" value="Pós-Laboral">Pós-Laboral</label>
-                                            </div>
+                                        <div class="checkbox">
+                                            <label><input type="checkbox" name="cidade[]" value="Portalegre">Portalegre</label>
                                         </div>
-                                    </div>
-                                    <button type="submit" id="submit" class="btn-system btn-large"  style="margin-bottom: 5%">Pesquisar</button>                      
-                                </form>
-
-                            </div>
-                            <!-- Tab Content 2 -->
-                            <div class="tab-pane fade" id="tab-2">
-
-                                <form id="form2" action="cursos.php" method="post">
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <!-- Classic Heading -->
-
-                                            <div class="row">
-                                                <div class="col-md-12">
-                                                    <!-- Classic Heading -->
-                                                    <div class="row">
-
-                                                        <div class="col-md-12 col-sm-12">
-                                                            <div class="checkbox">
-                                                                <label><input type="checkbox" name="grupoato">Análise de Domínio e Engenharia de Requisitos</label>
-                                                            </div>
-                                                            <div class="checkbox">
-                                                                <label><input type="checkbox" name="grupoato">Conceção e Construção de Soluções Informáticas</label>
-                                                            </div>
-                                                            <div class="checkbox">
-                                                                <label><input type="checkbox" name="grupoato">Teste e Validação de Soluções Informáticas</label>
-                                                            </div>
-                                                            <div class="checkbox">
-                                                                <label><input type="checkbox" name="grupoato">Planeamento e Exploração de Infra-Estruturas de Tecnologias de Informação</label>
-                                                            </div>
-                                                            <div class="checkbox">
-                                                                <label><input type="checkbox" name="grupoato">Gestão de Projectos de Sistemas de Informação</label>
-                                                            </div>
-                                                            <div class="checkbox">
-                                                                <label><input type="checkbox" name="grupoato">Planeamento e Auditoria de Sistemas de Informação</label>
-                                                            </div>
-                                                            <div class="checkbox">
-                                                                <label><input type="checkbox" name="grupoato">Investigação, Ensino e Normalização</label>
-                                                            </div>
-                                                            <div class="checkbox">
-                                                                <label><input type="checkbox" name="grupoato">Manutenção e Gestão de Ativos</label>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                        <div class="checkbox">
+                                            <label><input type="checkbox" name="cidade[]" value="Santarém">Santarém</label>
+                                        </div>
+                                        <div class="checkbox">
+                                            <label><input type="checkbox" name="cidade[]" value="Viana do Castelo">Viana do Castelo</label>
+                                        </div>
+                                        <div class="checkbox">
+                                            <label><input type="checkbox" name="cidade[]" value="Vila Real">Vila Real</label>
+                                        </div>
+                                        <div class="checkbox">
+                                            <label><input type="checkbox" name="cidade[]" value="Viseu">Viseu</label>
+                                        </div>
+                                        <div class="checkbox">
+                                            <label><input type="checkbox" name="cidade[]" value="Açores">Açores</label>
+                                        </div>
+                                        <div class="checkbox">
+                                            <label><input type="checkbox" name="cidade[]" value="Madeira">Madeira</label>
                                         </div>
                                     </div>
-                                    <button type="submit" id="submit" class="btn-system btn-large">Pesquisar</button>
-                                </form>
+                                </div>
                             </div>
                         </div>
-                        <!-- End Tab Panels -->
-                    </div>
-                   <div class="hr1" style="margin-bottom:50px;"></div>
-                    <div class="col-md-12">
 
-                        <!-- Classic Heading -->
-                        <h4 class="classic-title"><span>Resultados da Pesquisa</span></h4>
-                        <div class="row">
+                        <div class="row" style="padding-bottom: 1%">
+                            <div class="col-md-6 col-sm-6">
+                                <h5 class="classic-title" style="margin-bottom: 0px;">Ciclo de estudos</h5>
+                                <div class="checkbox">
+                                    <label><input type="checkbox" name="grau[]" value="1">Licenciatura</label>
+                                </div>
+                                <div class="checkbox">
+                                    <label><input type="checkbox" name="grau[]" value="2">Mestrado Integrado</label>
+                                </div>
+                                <div class="checkbox">
+                                    <label><input type="checkbox" name="grau[]" value="3">Mestrado</label>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-6">
+                                <h5 class="classic-title" style="margin-bottom: 0px;">Regime</h5>
+                                <div class="checkbox">
+                                    <label><input type="checkbox" name="regime[]" value="Normal">Normal</label>
+                                </div>
+                                <div class="checkbox">
+                                    <label><input type="checkbox" name="regime[]" value="Pós-Laboral">Pós-Laboral</label>
+                                </div>
+                            </div>
+                        </div>
+                        <button type="submit" id="submit" class="btn-system btn-large"  style="margin-bottom: 5%">Pesquisar</button>                      
+                    </form>
+
+                </div>
+
+            </div>
+            <!-- End Tab Panels -->
+        </div>
+
+        <!-- Results Section -->
+        <div class="content">
+            <div class="container">
+                <div class="col-md-12">
+
+                    <!-- Classic Heading -->
+                    <h4 class="classic-title"><span>Resultados da Pesquisa</span></h4>
+                    <div class="row">
+                        <div class="col-md-12" style="padding-bottom: 30px">
                             <!-- Start Service Icon 2 -->
                             <?php
                             if (isset($_POST['cidade']) || isset($_POST['grau']) || isset($_POST['regime'])) {
@@ -214,11 +159,11 @@ include 'funcoes.php';
                                     $regime = $_POST['regime'];
                                 }
                                 $designacao_curso = get_curso_pesquisa($cidade, $grau, $regime);
-                                if($designacao_curso) {
+                                if ($designacao_curso) {
                                     if (mysqli_num_rows($designacao_curso) > 0) {
-                                        while($row = mysqli_fetch_array($designacao_curso)) {
-                                            echo '<form id="f'.$row['ID_CURSO'].'" action="curso.php" method="post">';
-                                            echo '<a href="javascript:;" onclick="document.getElementById(\'f'.$row['ID_CURSO'].'\').submit();">';
+                                        while ($row = mysqli_fetch_array($designacao_curso)) {
+                                            echo '<form id="f' . $row['ID_CURSO'] . '" action="curso.php" method="post">';
+                                            echo '<a href="javascript:;" onclick="document.getElementById(\'f' . $row['ID_CURSO'] . '\').submit();">';
                                             echo '<div class = "col-md-12 service-box service-icon-left-more">';
                                             echo '<div class = "service-icon">';
                                             echo '<i class = "fa fa-institution icon-medium"></i>';
@@ -232,14 +177,14 @@ include 'funcoes.php';
                                             echo '</div>';
                                             echo '</div>';
                                             echo '</a>';
-                                            echo '<input type="hidden" name="idcurso" value="'.$row['ID_CURSO'].'">';
+                                            echo '<input type="hidden" name="idcurso" value="' . $row['ID_CURSO'] . '">';
                                             echo '</form>';
                                         }
                                     } else {
                                         echo 'Não existem resultados para a pesquisa efetuada!';
                                     }
                                 } else {
-                                    echo 'Erro Query';
+                                    echo 'Não existem resultados para a pesquisa efetuada!';
                                 }
                             } else {
                                 
@@ -249,7 +194,6 @@ include 'funcoes.php';
                         </div>
                     </div>
                 </div>
-                <!-- End Page Content -->
             </div>
         </div>
     </div>

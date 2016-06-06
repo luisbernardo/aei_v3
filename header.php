@@ -23,7 +23,7 @@
 
                     </li>
                     <li>
-                        <a href="about.php">Estatísticas</a>
+                        <a href="estatistica.php">Estatísticas</a>
                     </li>
                     <li>
                         <a href="atos.php">Atos de Profissão</a>
@@ -45,7 +45,7 @@
                 <a href="index.php">Ínicio</a>
             </li>
             <li>
-                <a href="about.php">Sobre</a>
+                <a href="estatistica.php">Estatísticas</a>
             </li>
             <li>
                 <a href="atos.php">Atos</a>

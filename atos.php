@@ -61,6 +61,7 @@ include 'funcoes.php';
                                 actuação).
                             </p>
 
+                            <a href="AEI_Atos_Grupo5-GPSI_final.pdf" download style="font-size: 15px">Clique aqui para obter as Descrições dos Atos de Profissão. </a>
                         </div>
                     </div>
                     <!-- Start Atos Section -->

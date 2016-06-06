@@ -90,7 +90,6 @@ function get_grupo_ato() {
 function get_info_ato($idAto) {
     $ligacao = ligar_base_dados();
     $expressao = "SELECT * from ato_profissao Where ID_ATO_PROFISSAO = '" . $idAto . "' ";
-    echo $expressao;
     $resultado = mysqli_query($ligacao, $expressao);
     mysqli_close($ligacao);
     return $resultado;
@@ -237,5 +236,100 @@ function get_curso_pesquisa($city, $grau, $regime) {
     mysqli_close($ligacao);
     return $resultado;
 }
+
+function get_top10() {
+    $ligacao = ligar_base_dados();
+    $expressao = "Select * from cobertura_curso ORDER BY AVALIACAO DESC limit 10";
+
+    $resultado = mysqli_query($ligacao, $expressao);
+    mysqli_close($ligacao);
+    return $resultado;
+}
+
+function get_top5_grupo1() {
+    $ligacao = ligar_base_dados();
+    $expressao = "Select * from cobertura_curso WHERE ID_ATO_PROFISSAO = 1 ORDER BY AVALIACAO DESC limit 5";
+
+    $resultado = mysqli_query($ligacao, $expressao);
+    mysqli_close($ligacao);
+    return $resultado;
+}
+
+function get_top5_grupo2() {
+    $ligacao = ligar_base_dados();
+    $expressao = "Select * from cobertura_curso WHERE ID_ATO_PROFISSAO = 23 ORDER BY AVALIACAO DESC limit 5";
+
+    $resultado = mysqli_query($ligacao, $expressao);
+    mysqli_close($ligacao);
+    return $resultado;
+}
+
+function get_top5_grupo3() {
+    $ligacao = ligar_base_dados();
+    $expressao = "Select * from cobertura_curso WHERE ID_ATO_PROFISSAO = 42 ORDER BY AVALIACAO DESC limit 5";
+
+    $resultado = mysqli_query($ligacao, $expressao);
+    mysqli_close($ligacao);
+    return $resultado;
+}
+
+function get_top5_grupo4() {
+    $ligacao = ligar_base_dados();
+    $expressao = "Select * from cobertura_curso WHERE ID_ATO_PROFISSAO = 54 ORDER BY AVALIACAO DESC limit 5";
+
+    $resultado = mysqli_query($ligacao, $expressao);
+    mysqli_close($ligacao);
+    return $resultado;
+}
+
+function get_top5_grupo5() {
+    $ligacao = ligar_base_dados();
+    $expressao = "Select * from cobertura_curso WHERE ID_ATO_PROFISSAO = 72 ORDER BY AVALIACAO DESC limit 5";
+
+    $resultado = mysqli_query($ligacao, $expressao);
+    mysqli_close($ligacao);
+    return $resultado;
+}
+
+function get_top5_grupo6() {
+    $ligacao = ligar_base_dados();
+    $expressao = "Select * from cobertura_curso WHERE ID_ATO_PROFISSAO = 92 ORDER BY AVALIACAO DESC limit 5";
+
+    $resultado = mysqli_query($ligacao, $expressao);
+    mysqli_close($ligacao);
+    return $resultado;
+}
+
+function id_to_name($idgrau) {
+    if($idgrau == 1){
+        return 'Licenciatura';
+    }
+    else if ($idgrau == 2){
+        return 'Mestrado Integrado';
+    }
+    else if($idgrau == 3){
+        return 'Mestrado';
+    }
+}
+
+function get_cobertura_curso($idcurso) {
+    $ligacao = ligar_base_dados();
+    $expressao = "Select * from cobertura_curso WHERE ID_CURSO = '" . $idcurso . "' AND ID_ATO_PROFISSAO = 0";
+
+    $resultado = mysqli_query($ligacao, $expressao);
+    mysqli_close($ligacao);
+    return $resultado;
+}
+
+function get_cobertura_porato($idcurso){
+    $ligacao = ligar_base_dados();
+    $expressao = "SELECT * FROM cobertura_curso WHERE ID_CURSO = '" . $idcurso . "' AND ID_ATO_PROFISSAO IN (SELECT ID_ATO_PROFISSAO FROM ato_profissao WHERE NIVEL = 1) ORDER BY ID_ATO_PROFISSAO ASC";
+
+    $resultado = mysqli_query($ligacao, $expressao);
+    mysqli_close($ligacao);
+    return $resultado;
+}
+
+
 
 ?>

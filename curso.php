@@ -60,8 +60,172 @@ echo $curso;
                     <div class="project-media col-md-8">
                         <div class="touch-slider project-slider">
                             <div class="item">
-                                <div class="thumb-overlay"></div>
-                                <img alt="" src="images/portfolio/uminho.jpg" style="width:100%;">
+                                <!-- Start Map -->
+                                <div id="map" data-position-latitude="<?php
+                                $latitude = get_curso($curso);
+                                if (mysqli_num_rows($latitude) > 0) {
+                                    while ($row = mysqli_fetch_array($latitude)) {
+                                        echo $row['LATITUDE'];
+                                    }
+                                }
+                                ?>
+                                     " data-position-longitude="<?php
+                                     $longitude = get_curso($curso);
+                                     if (mysqli_num_rows($longitude) > 0) {
+                                         while ($row = mysqli_fetch_array($longitude)) {
+                                             echo $row['LONGITUDE'];
+                                         }
+                                     }
+                                     ?>"></div>
+                                <script>
+                                    (function($) {
+                                        $.fn.CustomMap = function(options) {
+
+                                            var posLatitude = $('#map').data('position-latitude'),
+                                                    posLongitude = $('#map').data('position-longitude');
+
+                                            var settings = $.extend({
+                                                home: {
+                                                    latitude: posLatitude,
+                                                    longitude: posLongitude
+                                                },
+                                                text: '<div class="map-popup"><h4>Departamento de Sistemas de Informação</h4><p>Universidade do Minho</p></div>',
+                                                icon_url: $('#map').data('marker-img'),
+                                                zoom: 10
+                                            }, options);
+
+                                            var coords = new google.maps.LatLng(settings.home.latitude, settings.home.longitude);
+
+                                            return this.each(function() {
+                                                var element = $(this);
+
+                                                var options = {
+                                                    zoom: settings.zoom,
+                                                    center: coords,
+                                                    mapTypeId: google.maps.MapTypeId.ROADMAP,
+                                                    mapTypeControl: false,
+                                                    scaleControl: false,
+                                                    streetViewControl: false,
+                                                    panControl: true,
+                                                    disableDefaultUI: true,
+                                                    zoomControlOptions: {
+                                                        style: google.maps.ZoomControlStyle.DEFAULT
+                                                    },
+                                                    overviewMapControl: true,
+                                                };
+
+                                                var map = new google.maps.Map(element[0], options);
+
+                                                var icon = {
+                                                    url: settings.icon_url,
+                                                    origin: new google.maps.Point(0, 0)
+                                                };
+
+                                                var marker = new google.maps.Marker({
+                                                    position: coords,
+                                                    map: map,
+                                                    icon: icon,
+                                                    draggable: false
+                                                });
+
+                                                var info = new google.maps.InfoWindow({
+                                                    content: settings.text
+                                                });
+
+                                                google.maps.event.addListener(marker, 'click', function() {
+                                                    info.open(map, marker);
+                                                });
+
+                                                var styles = [{
+                                                        "featureType": "landscape",
+                                                        "stylers": [{
+                                                                "saturation": -100
+                                                            }, {
+                                                                "lightness": 65
+                                                            }, {
+                                                                "visibility": "on"
+                                                            }]
+                                                    }, {
+                                                        "featureType": "poi",
+                                                        "stylers": [{
+                                                                "saturation": -100
+                                                            }, {
+                                                                "lightness": 51
+                                                            }, {
+                                                                "visibility": "simplified"
+                                                            }]
+                                                    }, {
+                                                        "featureType": "road.highway",
+                                                        "stylers": [{
+                                                                "saturation": -100
+                                                            }, {
+                                                                "visibility": "simplified"
+                                                            }]
+                                                    }, {
+                                                        "featureType": "road.arterial",
+                                                        "stylers": [{
+                                                                "saturation": -100
+                                                            }, {
+                                                                "lightness": 30
+                                                            }, {
+                                                                "visibility": "on"
+                                                            }]
+                                                    }, {
+                                                        "featureType": "road.local",
+                                                        "stylers": [{
+                                                                "saturation": -100
+                                                            }, {
+                                                                "lightness": 40
+                                                            }, {
+                                                                "visibility": "on"
+                                                            }]
+                                                    }, {
+                                                        "featureType": "transit",
+                                                        "stylers": [{
+                                                                "saturation": -100
+                                                            }, {
+                                                                "visibility": "simplified"
+                                                            }]
+                                                    }, {
+                                                        "featureType": "administrative.province",
+                                                        "stylers": [{
+                                                                "visibility": "on"
+                                                            }]
+                                                    }, {
+                                                        "featureType": "water",
+                                                        "elementType": "labels",
+                                                        "stylers": [{
+                                                                "visibility": "on"
+                                                            }, {
+                                                                "lightness": -25
+                                                            }, {
+                                                                "saturation": -100
+                                                            }]
+                                                    }, {
+                                                        "featureType": "water",
+                                                        "elementType": "geometry",
+                                                        "stylers": [{
+                                                                "hue": "#ffff00"
+                                                            }, {
+                                                                "lightness": -25
+                                                            }, {
+                                                                "saturation": -97
+                                                            }]
+                                                    }];
+
+                                                map.setOptions({
+                                                    styles: styles
+                                                });
+                                            });
+
+                                        };
+                                    }(jQuery));
+
+                                    jQuery(document).ready(function() {
+                                        jQuery('#map').CustomMap();
+                                    });
+                                </script>
+                                <!-- End Map -->
                             </div>
                         </div>
                     </div>
@@ -77,6 +241,7 @@ echo $curso;
                                     $nome_univ = get_universidade($row['FK_ID_ENTIDADE']);
                                     while ($row2 = mysqli_fetch_array($nome_univ)) {
                                         echo $row2['NOME'];
+                                        
                                     }
                                 }
                             }
@@ -87,22 +252,25 @@ echo $curso;
                             if (mysqli_num_rows($designacao_curso) > 0) {
                                 while ($row = mysqli_fetch_array($designacao_curso)) {
                                     echo '<li><strong>Designação: </strong>' . $row['NOME'] . '</li>';
-                                    echo '<li><strong>Grau Académico: </strong >' . $row['GRAU'] . '</li>';
+                                    $grau = id_to_name($row['GRAU']);
+                                    echo '<li><strong>Grau Académico: </strong >' . $grau . '</li>';
                                     echo '<li><strong>ECTS: </strong>' . $row['ECTS'] . '</li>';
-                                    echo '<li><strong>Duração: </strong>' . $row['DURACAO'] . '</li>';
+                                    echo '<li><strong>Duração: </strong>' . $row['DURACAO'] . ' Semestres Letivos</li>';
                                     echo '<li><strong>Regime: </strong>' . $row['REGIME'] . '</li>';
                                     echo '<li><strong>Local: </strong>' . $row['LOCAL'] . '</li>';
                                 }
                             }
                             ?>
-
+                            <br>
+                            <form id="formcobertura" action="cobertura.php" method="post">
+                                <input type="hidden" name="idcurso" value="<?php echo $curso; ?>">
+                                <li><input type="submit" id="submit" class="btn-system btn-small border-btn" value="Ver Cobertura do Curso" style="margin-bottom: 5%"></li>
+                            </form>
                         </ul>
                     </div>
                     <!-- End Project Content -->
                 </div>
             </div>
-
-
             <!-- Start Testimonial -->
             <div id="content">
                 <div class="container">
@@ -138,163 +306,10 @@ echo $curso;
             <!-- End Testimonial Content -->
 
 
-            <!-- Start Map -->
-            <div id="map" data-position-latitude="41.453090" data-position-longitude="-8.289196"></div>
-            <script>
-                (function($) {
-                    $.fn.CustomMap = function(options) {
-
-                        var posLatitude = $('#map').data('position-latitude'),
-                                posLongitude = $('#map').data('position-longitude');
-
-                        var settings = $.extend({
-                            home: {
-                                latitude: posLatitude,
-                                longitude: posLongitude
-                            },
-                            text: '<div class="map-popup"><h4>Departamento de Sistemas de Informação</h4><p>Universidade do Minho</p></div>',
-                            icon_url: $('#map').data('marker-img'),
-                            zoom: 9
-                        }, options);
-
-                        var coords = new google.maps.LatLng(settings.home.latitude, settings.home.longitude);
-
-                        return this.each(function() {
-                            var element = $(this);
-
-                            var options = {
-                                zoom: settings.zoom,
-                                center: coords,
-                                mapTypeId: google.maps.MapTypeId.ROADMAP,
-                                mapTypeControl: false,
-                                scaleControl: false,
-                                streetViewControl: false,
-                                panControl: true,
-                                disableDefaultUI: true,
-                                zoomControlOptions: {
-                                    style: google.maps.ZoomControlStyle.DEFAULT
-                                },
-                                overviewMapControl: true,
-                            };
-
-                            var map = new google.maps.Map(element[0], options);
-
-                            var icon = {
-                                url: settings.icon_url,
-                                origin: new google.maps.Point(0, 0)
-                            };
-
-                            var marker = new google.maps.Marker({
-                                position: coords,
-                                map: map,
-                                icon: icon,
-                                draggable: false
-                            });
-
-                            var info = new google.maps.InfoWindow({
-                                content: settings.text
-                            });
-
-                            google.maps.event.addListener(marker, 'click', function() {
-                                info.open(map, marker);
-                            });
-
-                            var styles = [{
-                                    "featureType": "landscape",
-                                    "stylers": [{
-                                            "saturation": -100
-                                        }, {
-                                            "lightness": 65
-                                        }, {
-                                            "visibility": "on"
-                                        }]
-                                }, {
-                                    "featureType": "poi",
-                                    "stylers": [{
-                                            "saturation": -100
-                                        }, {
-                                            "lightness": 51
-                                        }, {
-                                            "visibility": "simplified"
-                                        }]
-                                }, {
-                                    "featureType": "road.highway",
-                                    "stylers": [{
-                                            "saturation": -100
-                                        }, {
-                                            "visibility": "simplified"
-                                        }]
-                                }, {
-                                    "featureType": "road.arterial",
-                                    "stylers": [{
-                                            "saturation": -100
-                                        }, {
-                                            "lightness": 30
-                                        }, {
-                                            "visibility": "on"
-                                        }]
-                                }, {
-                                    "featureType": "road.local",
-                                    "stylers": [{
-                                            "saturation": -100
-                                        }, {
-                                            "lightness": 40
-                                        }, {
-                                            "visibility": "on"
-                                        }]
-                                }, {
-                                    "featureType": "transit",
-                                    "stylers": [{
-                                            "saturation": -100
-                                        }, {
-                                            "visibility": "simplified"
-                                        }]
-                                }, {
-                                    "featureType": "administrative.province",
-                                    "stylers": [{
-                                            "visibility": "on"
-                                        }]
-                                }, {
-                                    "featureType": "water",
-                                    "elementType": "labels",
-                                    "stylers": [{
-                                            "visibility": "on"
-                                        }, {
-                                            "lightness": -25
-                                        }, {
-                                            "saturation": -100
-                                        }]
-                                }, {
-                                    "featureType": "water",
-                                    "elementType": "geometry",
-                                    "stylers": [{
-                                            "hue": "#ffff00"
-                                        }, {
-                                            "lightness": -25
-                                        }, {
-                                            "saturation": -97
-                                        }]
-                                }];
-
-                            map.setOptions({
-                                styles: styles
-                            });
-                        });
-
-                    };
-                }(jQuery));
-
-                jQuery(document).ready(function() {
-                    jQuery('#map').CustomMap();
-                });
-            </script>
-            <!-- End Map -->
-
-
             <div class="container">
                 <div class="row">
                     <!-- Divider -->
-                    <div class="hr5" style=" margin-top:45px; margin-bottom:40px;"></div>
+
                     <div class="row">
                         <div class="col-md-12">
 
