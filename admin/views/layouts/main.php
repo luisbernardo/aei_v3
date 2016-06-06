@@ -19,7 +19,7 @@ AppAsset::register($this);
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <?= Html::csrfMetaTags() ?>
-    <title><?= Html::encode($this->title) ?></title>
+    <title>AEI - Atos de Engenharia Inform√°tica</title>
     <?php $this->head() ?>
 </head>
 <body>
@@ -29,13 +29,13 @@ AppAsset::register($this);
     <?php
     NavBar::begin([
         'brandLabel' => 'PTSI1516 - AEI',
-        'brandUrl' => Yii::$app->homeUrl,
+        'brandUrl' => '../../index.php',
         'options' => [
             'class' => 'navbar-inverse navbar-fixed-top',
         ],        
     ]);
     if(!Yii::$app->user->isGuest) {
-        $menuItems[] = ['label' => 'Dados Est·ticos',
+        $menuItems[] = ['label' => 'Dados Est√°ticos',
                 'items' => [ 
                            ['label' => 'Carregar', 'url' => ['/site/dadosestaticos']],
                            ['label' => 'Descarregar', 'url' => ['/site/descarregardados']]
@@ -71,7 +71,7 @@ AppAsset::register($this);
                                 ['label' => 'Visualizar', 'url' => ['/unidade-curricular/index']]
                             ]
             ];
-        $menuItems[] = ['label' => 'Atos de Profiss„o',
+        $menuItems[] = ['label' => 'Atos de Profiss√£o',
                 'items' => [
                                 ['label' => 'Criar', 'url' => ['/ato-profissao/create']],
                                 ['label' => 'Visualizar', 'url' => ['/ato-profissao/index']]

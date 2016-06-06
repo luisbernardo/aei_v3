@@ -24,9 +24,10 @@
                                 echo '</form>';
                             }
                         }
-                    ?>    
+                    ?>
                     <a href="cursos.php"><strong>Cursos</strong></a><br>
-                    <a href="contact.php"><strong>Contactos</strong></a>
+                    <a href="contact.php"><strong>Contactos</strong></a><br>
+                    <a href="admin/web/index.php?r=site%2Flogin"><strong>Administração</strong></a>
                 </div>
             </div>
             <!-- .col-md-3 -->

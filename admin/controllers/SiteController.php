@@ -10,8 +10,8 @@ use yii\web\Controller;
 use yii\web\UploadedFile;
 use yii\filters\VerbFilter;
 use app\models\LoginForm;
-use app\models\ContactForm;
 use app\models\UploadForm;
+use app\models\UploadForm2;
 use php\PHPExcel\Classes\PHPExcel;
 
 class SiteController extends Controller
@@ -75,31 +75,76 @@ class SiteController extends Controller
         return $link;
     }
     
-    public function actionCobertura() {
-        $model = new UploadForm();        
+    public function actionCobertura() 
+    {
+        $model = new UploadForm2();        
         if (Yii::$app->request->isPost) {
-            $model->excelFile = UploadedFile::getInstance($model, 'excelFile');
+            $model->uploadedFiles = UploadedFile::getInstances($model, 'uploadedFiles');
             $model->isUploaded = true;
-            $file = $model;
             if ($model->upload()) {
-                $ficheiro = Yii::getAlias("@webroot");
-                $objPHPExcel = \PHPExcel_IOFactory::load($ficheiro);
-                foreach($objPHPExcel->getWorksheetIterator() as $worksheet) {
-                    $worksheetTitle = $worksheet->getTitle();
-                    $highestrow = $worksheet->getHighestRow();
-                    $highestcol = $worksheet->getHighestColumn();
-                    $highestcolindex = \PHPExcel_Cell::columnIndexFromString($highestcol);
-                    $nrColumns = ord($highestcol) - 64;
-                    for ($row = 0; $row <= $highestrow; ++ $row) {
-                        for ($col = 0; $col < $highestcolindex; ++ $col) {
-                            $cell = $worksheet->getCellByColumnAndRow($col, $row);
-                            $val = $cell->getValue();
-                            $dataType = \PHPExcel_Cell_DataType::dataTypeForValue($val);
+                foreach($model->uploadedFiles as $file) {
+                    $ficheiro = Yii::getAlias("@webroot") . "/ficheiros/" . $file->baseName . "." . $file->getExtension();
+                    $objPHPExcel = \PHPExcel_IOFactory::load($ficheiro);
+                    $contador = 0;
+                    $query = "";
+                    foreach($objPHPExcel->getWorksheetIterator() as $worksheet) {
+                        $worksheetTitle = $worksheet->getTitle();
+                        $highestrow = $worksheet->getHighestRow();
+                        $highestcol = $worksheet->getHighestColumn();
+                        $highestcolindex = \PHPExcel_Cell::columnIndexFromString($highestcol);
+                        $nrColumns = ord($highestcol) - 64;
+                        if($contador==0) {
+                            $idcurso = $worksheet->getCell("C1")->getValue();
+                            $query .= "DELETE FROM cobertura_uc WHERE ID_CURSO = ";
+                            $query .= $idcurso."; ";
+                            $query .= "INSERT INTO `cobertura_uc` (ID_CURSO, ID_UC, ID_ATO_PROFISSAO, AVALIACAO, DATA_AVALIACAO, ESTADO) VALUES (";
+                            for($col = 2; $col <= $highestcolindex; ++ $col) {
+                                $idUc = $worksheet->getCellByColumnAndRow($col, 2)->getValue();
+                                for($row = 4; $row <= 104; ++ $row) {
+                                    $cell = $worksheet->getCellByColumnAndRow($col, $row);
+                                    $val = $cell->getCalculatedValue();
+                                    $dataType = \PHPExcel_Cell_DataType::dataTypeForValue($val);
+                                    if($dataType == "null") {
+                                        
+                                    } else {
+                                        $query .= $idcurso . ", " . $idUc . ", ". ($row - 3) .", ". round($val) .", '" . date('Y/m/d H:i:s') . "', 1),(";
+                                    }
+                                }
+                            }
+                            $query = substr($query, 0, -3);
+                            $query .= "); ";
+                        } else {
+                            $idcurso = $worksheet->getCell("D1")->getValue();
+                            $query .= "DELETE FROM cobertura_curso WHERE ID_CURSO = ";
+                            $query .= $idcurso."; ";
+                            $query .= "INSERT INTO `cobertura_curso` (ID_CURSO, ID_ATO_PROFISSAO, AVALIACAO, DATA_AVALIACAO, ESTADO) VALUES (";
+                            $coberturaTotal = $worksheet->getCell("C2")->getCalculatedValue();
+                            $query .= $idcurso . ", 0, ". round($coberturaTotal) .", '". date('Y/m/d H:i:s') ."', 1), (";
+                            $col = 1;
+                            for($row = 2; $row <= 99; ++ $row) {
+                                $cell = $worksheet->getCellByColumnAndRow($col, $row);
+                                $val = $cell->getCalculatedValue();
+                                $dataType = \PHPExcel_Cell_DataType::dataTypeForValue($val);
+                                if($dataType == "null") {
+
+                                } else {
+                                    $query .= $idcurso . ", ". $row . ", ". round($val) .", '" . date('Y/m/d H:i:s') . "', 1),(";
+                                }
+                            }
+                            $query = substr($query, 0, -3);
+                            $query .= "); ";
                         }
+                        $contador++;
                     }
+                    $query .= " INSERT INTO `AUDIT_TRAIL` (`DATA_ALTERACAO`, `DESC_ALTERACAO`) VALUES ('" . date('Y/m/d H:i:s') . "', 'Nova introducao dados cobertura');";
+                }
+                $ligacao = $this->ligar_bd();
+                if(mysqli_multi_query($ligacao, $query)) {
+                    return $this->render('cobertura', ['model' => $model]);
+                } else {
+                    echo mysqli_error($ligacao) ."<br>";
                 }
             }
-            return $this->render('cobertura', ['model' => $model]);
         } else {
             return $this->render('cobertura', ['model' => $model]);
         }
@@ -129,7 +174,7 @@ class SiteController extends Controller
                     if($count == 1) {
                         $highestcolindex = 4;
                     } else if($count == 2) {
-                        $highestcolindex = 12;
+                        $highestcolindex = 14;
                     } else if($count == 3) {
                         $highestcolindex = 7;
                     } else {
@@ -195,6 +240,6 @@ class SiteController extends Controller
     {
         Yii::$app->user->logout();
 
-        return $this->goHome();
+        return $this->redirect("../../index.php");
     }
 }
