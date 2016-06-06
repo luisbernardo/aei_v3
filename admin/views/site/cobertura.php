@@ -10,6 +10,7 @@ use yii\bootstrap\ActiveForm;
 $this->title = 'Upload de cobertura de atos';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
+
 <center>
     <?php 
     if($model->isUploaded) {

@@ -2,19 +2,42 @@
 
 /* @var $this yii\web\View */
 /* @var $form yii\bootstrap\ActiveForm */
-/* @var $model app\models\UploadForm */
+/* @var $model app\models\DownloadForm */
 
 use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
 
 $this->title = 'Download de cobertura de atos';
 $this->params['breadcrumbs'][] = $this->title;
+
+function ligar_bd()
+{
+    $link = mysqli_connect("localhost", "root", "", "ptsi");
+    mysqli_query($link,"SET NAMES utf8");
+    mysqli_set_charset($link, "uft8");
+    return $link;
+}
 ?>
 
-<center>
-    <p class="control-label">Se não possui o ficheiro para preencher, faça o download aqui:</p>
-    <a href="../web/ficheiros/EXCEL_BD.xlsx" style="color:black" download="BaseDados"><button class="btn">Download</button></a><br>
+<?php
+    if($model->isDownloaded) {
+        echo "<h4 style='color:green'> O seu ficheiro foi transferido com sucesso </h4>";
+    }
+    $form = ActiveForm::begin([ 'id' => 'download-cobertura',
+        'options' => ['class' => 'form-horizontal', 'enctype' => 'multipart/form-data']]);?>
     <br>
-    <p class="control-label">Se pertender manter os dados atuais, faça o download aqui:</p>
-    <a href="../web/ficheiros/EXCEL_BD_DADOS.xlsx" download="EXCEL_BD_DADOS.xlsx"><button class="btn" style="color:black">Download</button></a>
+    
+    <?= $form->field($model, 'cursos')->checkboxList(yii\helpers\ArrayHelper::map(\app\models\Curso::find()->all(),
+                    'ID_CURSO','NOME')); ?>
+
+<center>
+    <div class="form-group">
+        <div class="col-lg-offset-1 col-lg-10">
+            <?= Html::submitButton('Download', ['class' => 'btn btn-primary', 
+                                              'name' => 'download-ficheiro']) ?>
+        </div>
+    </div>
 </center>
+    
+<?php ActiveForm::end() ?>
+

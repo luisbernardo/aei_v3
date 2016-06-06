@@ -12,6 +12,7 @@ use yii\filters\VerbFilter;
 use app\models\LoginForm;
 use app\models\UploadForm;
 use app\models\UploadForm2;
+use app\models\DownloadForm;
 use php\PHPExcel\Classes\PHPExcel;
 
 class SiteController extends Controller
@@ -64,7 +65,15 @@ class SiteController extends Controller
     
     public function actionDescarregarcobertura()
     {
-        return $this->render('descarregarcobertura');
+        $model = new DownloadForm();
+        if(Yii::$app->request->isPost) {
+            $dados = Yii::$app->request->post();
+            $cursos = $dados['DownloadForm']['cursos'];
+            $model->cursos = $cursos; 
+            $model->download();
+        } else {
+            return $this->render('descarregarcobertura',['model' => $model]);
+        }
     }
     
     public function ligar_bd()
@@ -119,17 +128,20 @@ class SiteController extends Controller
                             $query .= $idcurso."; ";
                             $query .= "INSERT INTO `cobertura_curso` (ID_CURSO, ID_ATO_PROFISSAO, AVALIACAO, DATA_AVALIACAO, ESTADO) VALUES (";
                             $coberturaTotal = $worksheet->getCell("C2")->getCalculatedValue();
-                            $query .= $idcurso . ", 0, ". round($coberturaTotal) .", '". date('Y/m/d H:i:s') ."', 1), (";
+                            $ato = 0;
+                            $query .= $idcurso . ", ".$ato.", ". round($coberturaTotal) .", '". date('Y/m/d H:i:s') ."', 1), (";
                             $col = 1;
-                            for($row = 2; $row <= 99; ++ $row) {
+                            $ato++;
+                            for($row = 2; $row <= 102; ++ $row) {
                                 $cell = $worksheet->getCellByColumnAndRow($col, $row);
                                 $val = $cell->getCalculatedValue();
                                 $dataType = \PHPExcel_Cell_DataType::dataTypeForValue($val);
                                 if($dataType == "null") {
 
                                 } else {
-                                    $query .= $idcurso . ", ". $row . ", ". round($val) .", '" . date('Y/m/d H:i:s') . "', 1),(";
+                                    $query .= $idcurso . ", ". $ato . ", ". round($val) .", '" . date('Y/m/d H:i:s') . "', 1),(";
                                 }
+                                $ato++;
                             }
                             $query = substr($query, 0, -3);
                             $query .= "); ";

@@ -14,7 +14,7 @@ class UploadForm2 extends Model
      */
     public $uploadedFiles;
     public $isUploaded;
-
+    
     public function rules()
     {
         return [
