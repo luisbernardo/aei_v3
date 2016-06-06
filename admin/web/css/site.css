@@ -4,26 +4,11 @@ body {
     font-family: "NewsGotT";
 }
 
+label {
+    font-family: "NewsGotTLig";
+}
 
 
-/* .image-curso::after {
-  content: "";
-  background-image:url("../images/graduation-school-hat.png");
-  opacity:0.2;
-  filter: alpha(opacity=20);
-  background-repeat:no-repeat;
-  background-size:40%;
-  background-position: center; 
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  position: absolute;
-  z-index: -1;   
-} */
-
-    
-  
 .wrap {
     min-height: 100%;
     height: auto;

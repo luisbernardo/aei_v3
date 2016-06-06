@@ -10,7 +10,7 @@ use yii\web\UploadedFile;
 class UploadForm2 extends Model
 {
     /**
-     * @var UploadedFile
+     * @var UploadedFile[]
      */
     public $uploadedFiles;
     public $isUploaded;
@@ -18,7 +18,7 @@ class UploadForm2 extends Model
     public function rules()
     {
         return [
-            [['excelFile'], 'file', 'skipOnEmpty' => false, 'extensions' => 'xlsx, xls'],
+            [['uploadedFiles'], 'file', 'skipOnEmpty' => false, 'extensions' => 'xlsx, xls', 'maxFiles' => '4'],
         ];
     }
     

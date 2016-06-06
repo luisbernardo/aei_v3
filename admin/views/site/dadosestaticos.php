@@ -19,7 +19,7 @@ $this->params['breadcrumbs'][] = $this->title;
         'id' => 'excel-form',
         'options' => ['class' => 'form-horizontal', 'enctype' => 'multipart/form-data']]);?>
 <br>
-    <?= $form->field($model, 'excelFile')->fileInput()->label("Selecione o ficheiro que contém os dados estáticos!") ?>
+    <?= $form->field($model, 'excelFile')->fileInput()->label("Selecione o ficheiro que contém os dados estáticos! <br><br>") ?>
     
     <div class="form-group">
         <div class="col-lg-offset-1 col-lg-10">
