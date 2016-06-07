@@ -1,5 +1,7 @@
 <?php
 
+include("admin/web/php/PHPExcel/Classes/PHPExcel.php");
+
 function ligar_base_dados() {
     $link = mysqli_connect("localhost", "root", "", "ptsi");
     mysqli_query($link,"SET NAMES 'utf8'");
@@ -330,6 +332,24 @@ function get_atos_nivel1() {
     return $resultado;
 }
 
+function get_atos_nivel2() {
+    $ligacao = ligar_base_dados();
+    $expressao = "SELECT * FROM ato_profissao WHERE NIVEL = 2";
+
+    $resultado = mysqli_query($ligacao, $expressao);
+    mysqli_close($ligacao);
+    return $resultado;
+}
+
+function get_ucs($idcurso,$ano) {
+    $ligacao = ligar_base_dados();
+    $expressao = "SELECT * FROM unidade_curricular WHERE ID_CURSO =".$idcurso." AND ANO=".$ano.";";
+
+    $resultado = mysqli_query($ligacao, $expressao);
+    mysqli_close($ligacao);
+    return $resultado;
+}
+
 function get_cobertura_porato($idcurso){
     $ligacao = ligar_base_dados();
     $expressao = "SELECT * FROM cobertura_curso WHERE ID_CURSO = '" . $idcurso . "' AND ID_ATO_PROFISSAO IN (SELECT ID_ATO_PROFISSAO FROM ato_profissao WHERE NIVEL = 1) ORDER BY ID_ATO_PROFISSAO ASC";
@@ -351,6 +371,15 @@ function get_cobertura_curso_ato($curso, $ato) {
 function get_atos_filhos($idato) {
     $ligacao = ligar_base_dados();
     $expressao = "SELECT * FROM ato_profissao WHERE FK_ID_PAI = '" . $idato . "';";
+
+    $resultado = mysqli_query($ligacao, $expressao);
+    mysqli_close($ligacao);
+    return $resultado;
+}
+
+function get_cobertura_uc_ano($idcurso, $ano) {
+    $ligacao = ligar_base_dados();
+    $expressao = "SELECT * FROM cobertura_uc WHERE ID_UC IN (SELECT * FROM unidade_curricular WHERE ID_CURSO = ".$idcurso." AND ANO=".$ano.";";
 
     $resultado = mysqli_query($ligacao, $expressao);
     mysqli_close($ligacao);

@@ -224,13 +224,6 @@ if (mysqli_num_rows($atos1) > 0) {
                         </div>
 
                     </div>
-                    <div class="hr5" style=" margin-top:45px; margin-bottom:40px;"></div>
-                    <div class="row">
-                        <div class="col-md-12">
-                            <!-- Classic Heading -->
-                            <h4 class="classic-title"><span>Cobertura por Unidade Curricular</span></h4>
-                        </div>
-                    </div>
                     <!-- .container -->
                 </div>
                 <!-- End Atos Section -->

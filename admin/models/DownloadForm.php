@@ -315,7 +315,7 @@ class DownloadForm extends Model
         $folha->setCellValueByColumnAndRow(1,94,"=COUNTIF(A95:A98,\">=\"&1)*100/4");
         $folha->setCellValueByColumnAndRow(1,99,"=COUNTIF(A100:A102,\">=\"&1)*100/3");
         
-        $linhas = array(4,5,6,7,8,10,11,12,13,20,21,22,23,26,27,
+        $linhas = array(4,5,6,7,8,10,11,12,13,15,16,17,18,20,21,22,23,26,27,
                         29,30,31,32,33,35,36,37,38,40,41,42,45,46,
                         48,49,50,52,53,54,57,58,59,61,62,63,64,66,
                         67,68,70,71,72,75,76,78,79,81,82,83,84,86,
@@ -465,7 +465,7 @@ class DownloadForm extends Model
         $objPHPExcel->getSecurity()->setLockStructure(true);
         $objPHPExcel->getSheet(1)->getProtection()->setSheet(true);
         $objWriter = new \PHPExcel_Writer_Excel2007($objPHPExcel);
-        $objWriter->save(BaseYii::getAlias("@webroot") . '/ficheiros/'.$sigla."_Aval_Atos_UC.xlsx");
+        $objWriter->save(BaseYii::getAlias("@webroot") . '/ficheirosCobertura/'.$sigla."_Aval_Atos_UC.xlsx");
     }
     
 
@@ -475,7 +475,7 @@ class DownloadForm extends Model
         $zip->open($zipname, \ZIPARCHIVE::CREATE | \ZIPARCHIVE::OVERWRITE);
         foreach($this->cursos as $curso) {
             $sigla = \app\models\Curso::findOne(["ID_CURSO" => $curso])['SIGLA'];
-            $fullpath = BaseYii::getAlias("@webroot") . '/ficheiros/'.$sigla."_Aval_Atos_UC.xlsx";
+            $fullpath = BaseYii::getAlias("@webroot") . '/ficheirosCobertura/'.$sigla."_Aval_Atos_UC.xlsx";
             if(file_exists($fullpath)) {
                 $zip->addFromString(basename($fullpath),  file_get_contents($fullpath));
             } else {

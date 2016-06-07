@@ -114,7 +114,16 @@ if(isset($_POST['idato'])) {
                                 echo '<div class = "skill">';
                                 echo '<p>' . $assoc3['NOME'] . '<p>';
                                 echo '<div class = "progress">';
-                                echo '<div class = "progress-bar" role = "progressbar" data-percentage = ' . $assoc2['AVALIACAO'] . '>';
+                                if($assoc2['AVALIACAO'] <= 25) {
+                                    $class = "red";
+                                } else if ($assoc2['AVALIACAO'] <=50) {
+                                    $class = "yellow";
+                                } else if ($assoc2['AVALIACAO'] <=75) {
+                                    $class = "orange";
+                                } else {
+                                    $class = "green";
+                                }
+                                echo '<div class = "progress-bar '.$class.'" role = "progressbar" data-percentage = ' . $assoc2['AVALIACAO'] . '>';
                                 echo "<span class = 'progress-bar-span'>" . $assoc2['AVALIACAO'] . "%</span>";
                                 echo '<span class = "sr-only">80% Complete</span>';
                                 echo '</div>';
