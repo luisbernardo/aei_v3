@@ -186,7 +186,7 @@ class SiteController extends Controller
                     if($count == 1) {
                         $highestcolindex = 4;
                     } else if($count == 2) {
-                        $highestcolindex = 14;
+                        $highestcolindex = 15;
                     } else if($count == 3) {
                         $highestcolindex = 7;
                     } else {

@@ -15,9 +15,18 @@ if (mysqli_num_rows($cursos) > 0) {
     while ($row = mysqli_fetch_array($cursos)) {
         $aval = $row['AVALIACAO'];
         $nomecurso = get_curso($row['ID_CURSO']);
+        if ($row['AVALIACAO'] <= 25) {
+            $class = "#e74c3c";
+        } else if ($row['AVALIACAO'] <= 50) {
+            $class = "#f39c12";
+        } else if ($row['AVALIACAO'] <= 75) {
+            $class = "#f1c40f";
+        } else {
+            $class = "#27ae60";
+        }
         while ($row2 = mysqli_fetch_array($nomecurso)) {
             $nome = $row2['SIGLA'];
-            echo '["' . $nome . '",'. $aval .', "#ff4d4d"],';
+            echo '["' . $nome . '",' . $aval . ', "' . $class . '"],';
         }
     }
 }
@@ -55,9 +64,18 @@ if (mysqli_num_rows($cursos) > 0) {
     while ($row = mysqli_fetch_array($cursos)) {
         $aval = $row['AVALIACAO'];
         $nomecurso = get_curso($row['ID_CURSO']);
+        if ($row['AVALIACAO'] <= 25) {
+            $class = "#e74c3c";
+        } else if ($row['AVALIACAO'] <= 50) {
+            $class = "#f39c12";
+        } else if ($row['AVALIACAO'] <= 75) {
+            $class = "#f1c40f";
+        } else {
+            $class = "#27ae60";
+        }
         while ($row2 = mysqli_fetch_array($nomecurso)) {
             $nome = $row2['SIGLA'];
-            echo '["' . $nome . '",' . $aval . ', "#ff4d4d"],';
+            echo '["' . $nome . '",' . $aval . ', "' . $class . '"],';
         }
     }
 }
@@ -102,9 +120,18 @@ if (mysqli_num_rows($cursos) > 0) {
     while ($row = mysqli_fetch_array($cursos)) {
         $aval = $row['AVALIACAO'];
         $nomecurso = get_curso($row['ID_CURSO']);
+        if ($row['AVALIACAO'] <= 25) {
+            $class = "#e74c3c";
+        } else if ($row['AVALIACAO'] <= 50) {
+            $class = "#f39c12";
+        } else if ($row['AVALIACAO'] <= 75) {
+            $class = "#f1c40f";
+        } else {
+            $class = "#27ae60";
+        }
         while ($row2 = mysqli_fetch_array($nomecurso)) {
             $nome = $row2['SIGLA'];
-            echo '["' . $nome . '",' . $aval . ', "#ff4d4d"],';
+            echo '["' . $nome . '",' . $aval . ', "' . $class . '"],';
         }
     }
 }
@@ -149,9 +176,18 @@ if (mysqli_num_rows($cursos) > 0) {
     while ($row = mysqli_fetch_array($cursos)) {
         $aval = $row['AVALIACAO'];
         $nomecurso = get_curso($row['ID_CURSO']);
+        if ($row['AVALIACAO'] <= 25) {
+            $class = "#e74c3c";
+        } else if ($row['AVALIACAO'] <= 50) {
+            $class = "#f39c12";
+        } else if ($row['AVALIACAO'] <= 75) {
+            $class = "#f1c40f";
+        } else {
+            $class = "#27ae60";
+        }
         while ($row2 = mysqli_fetch_array($nomecurso)) {
             $nome = $row2['SIGLA'];
-            echo '["' . $nome . '",' . $aval . ', "#ff4d4d"],';
+            echo '["' . $nome . '",' . $aval . ', "' . $class . '"],';
         }
     }
 }
@@ -196,9 +232,18 @@ if (mysqli_num_rows($cursos) > 0) {
     while ($row = mysqli_fetch_array($cursos)) {
         $aval = $row['AVALIACAO'];
         $nomecurso = get_curso($row['ID_CURSO']);
+        if ($row['AVALIACAO'] <= 25) {
+            $class = "#e74c3c";
+        } else if ($row['AVALIACAO'] <= 50) {
+            $class = "#f39c12";
+        } else if ($row['AVALIACAO'] <= 75) {
+            $class = "#f1c40f";
+        } else {
+            $class = "#27ae60";
+        }
         while ($row2 = mysqli_fetch_array($nomecurso)) {
             $nome = $row2['SIGLA'];
-            echo '["' . $nome . '",' . $aval . ', "#ff4d4d"],';
+            echo '["' . $nome . '",' . $aval . ', "' . $class . '"],';
         }
     }
 }
@@ -243,9 +288,18 @@ if (mysqli_num_rows($cursos) > 0) {
     while ($row = mysqli_fetch_array($cursos)) {
         $aval = $row['AVALIACAO'];
         $nomecurso = get_curso($row['ID_CURSO']);
+        if ($row['AVALIACAO'] <= 25) {
+            $class = "#e74c3c";
+        } else if ($row['AVALIACAO'] <= 50) {
+            $class = "#f39c12";
+        } else if ($row['AVALIACAO'] <= 75) {
+            $class = "#f1c40f";
+        } else {
+            $class = "#27ae60";
+        }
         while ($row2 = mysqli_fetch_array($nomecurso)) {
             $nome = $row2['SIGLA'];
-            echo '["' . $nome . '",' . $aval . ', "#ff4d4d"],';
+            echo '["' . $nome . '",' . $aval . ', "' . $class . '"],';
         }
     }
 }
@@ -290,9 +344,18 @@ if (mysqli_num_rows($cursos) > 0) {
     while ($row = mysqli_fetch_array($cursos)) {
         $aval = $row['AVALIACAO'];
         $nomecurso = get_curso($row['ID_CURSO']);
+        if ($row['AVALIACAO'] <= 25) {
+            $class = "#e74c3c";
+        } else if ($row['AVALIACAO'] <= 50) {
+            $class = "#f39c12";
+        } else if ($row['AVALIACAO'] <= 75) {
+            $class = "#f1c40f";
+        } else {
+            $class = "#27ae60";
+        }
         while ($row2 = mysqli_fetch_array($nomecurso)) {
             $nome = $row2['SIGLA'];
-            echo '["' . $nome . '",' . $aval . ', "#ff4d4d"],';
+            echo '["' . $nome . '",' . $aval . ', "' . $class . '"],';
         }
     }
 }
@@ -333,18 +396,18 @@ if (mysqli_num_rows($cursos) > 0) {
 
         <?php include 'header.php'; ?>
 
-
         <!-- Start Page Banner -->
         <div class="page-banner">
             <div class="container">
                 <div class="row">
                     <div class="col-md-6">
-                        <h2>Estatísticas</h2>
+                        <h2>Atos de Engenharia Informática</h2>
+                        <p></p>
                     </div>
                     <div class="col-md-6">
                         <ul class="breadcrumbs">
                             <li><a href="index.php">Ínicio</a></li>
-                            <li>Estatísticas</li>
+                            <li>Atos</li>
                         </ul>
                     </div>
                 </div>
@@ -358,7 +421,6 @@ if (mysqli_num_rows($cursos) > 0) {
             <div class="container">
                 <div class="page-content">
                     <div class="row">
-
                         <div class="col-md-12">
                             <!-- Classic Heading -->
                             <h4 class="classic-title"><span>TOP 10 - Cobertura por Curso</span></h4>

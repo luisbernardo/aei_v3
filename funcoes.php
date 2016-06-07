@@ -202,7 +202,7 @@ function get_curso_pesquisa($city, $grau, $regime) {
             if ($contadorCidade > 0) {
                 $query .= " OR ";
             }
-            $query .= "LOCAL LIKE '%"  . $cidade . "'";
+            $query .= "DISTRITO LIKE '%"  . $cidade . "'";
             $contadorCidade++;
         }
         if(sizeof($grau) > 0) {
@@ -239,7 +239,7 @@ function get_curso_pesquisa($city, $grau, $regime) {
 
 function get_top10() {
     $ligacao = ligar_base_dados();
-    $expressao = "Select * from cobertura_curso ORDER BY AVALIACAO DESC limit 10";
+    $expressao = "SELECT * FROM cobertura_curso GROUP BY ID_CURSO ORDER BY AVALIACAO DESC LIMIT 10";
 
     $resultado = mysqli_query($ligacao, $expressao);
     mysqli_close($ligacao);
@@ -321,6 +321,15 @@ function get_cobertura_curso($idcurso) {
     return $resultado;
 }
 
+function get_atos_nivel1() {
+    $ligacao = ligar_base_dados();
+    $expressao = "SELECT * FROM ato_profissao WHERE NIVEL = 1";
+
+    $resultado = mysqli_query($ligacao, $expressao);
+    mysqli_close($ligacao);
+    return $resultado;
+}
+
 function get_cobertura_porato($idcurso){
     $ligacao = ligar_base_dados();
     $expressao = "SELECT * FROM cobertura_curso WHERE ID_CURSO = '" . $idcurso . "' AND ID_ATO_PROFISSAO IN (SELECT ID_ATO_PROFISSAO FROM ato_profissao WHERE NIVEL = 1) ORDER BY ID_ATO_PROFISSAO ASC";
@@ -330,6 +339,23 @@ function get_cobertura_porato($idcurso){
     return $resultado;
 }
 
+function get_cobertura_curso_ato($curso, $ato) {
+    $ligacao = ligar_base_dados();
+    $expressao = "SELECT * FROM cobertura_curso WHERE ID_CURSO = '" . $curso . "' AND ID_ATO_PROFISSAO =".$ato.";";
+
+    $resultado = mysqli_query($ligacao, $expressao);
+    mysqli_close($ligacao);
+    return $resultado;
+}
+
+function get_atos_filhos($idato) {
+    $ligacao = ligar_base_dados();
+    $expressao = "SELECT * FROM ato_profissao WHERE FK_ID_PAI = '" . $idato . "';";
+
+    $resultado = mysqli_query($ligacao, $expressao);
+    mysqli_close($ligacao);
+    return $resultado;
+}
 
 
 ?>

@@ -184,44 +184,7 @@
             <div class="container">
 
                 <div class="row">
-
-                    <div class="col-md-8">
-
-                        <!-- Classic Heading -->
-                        <h4 class="classic-title"><span>Contacte-nos</span></h4>
-
-                        <!-- Start Contact Form -->
-                        <form role="form" class="contact-form" id="contact-form" method="post">
-                            <div class="form-group">
-                                <div class="controls">
-                                    <input type="text" placeholder="Nome" name="name">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="controls">
-                                    <input type="email" class="email" placeholder="E-mail" name="email">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="controls">
-                                    <input type="text" class="requiredField" placeholder="Assunto" name="subject">
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-
-                                <div class="controls">
-                                    <textarea rows="7" placeholder="Mensagem" name="message"></textarea>
-                                </div>
-                            </div>
-                            <button type="submit" id="submit" class="btn-system btn-large">Enviar</button>
-                            <div id="success" style="color:#34495e;"></div>
-                        </form>
-                        <!-- End Contact Form -->
-
-                    </div>
-
-                    <div class="col-md-4">
+                    <div class="col-md-6">
 
                         <!-- Classic Heading -->
                         <h4 class="classic-title"><span>Informações</span></h4>
@@ -229,7 +192,7 @@
                         <!-- Some Info -->
                         <p>Departamento de Sistemas de Informação</p>
                         <p>Mestrado Integrado em Engenharia e Gestão de Sistemas de Informação</p>
-                        <p>Projeto de Tecnologias de Sistemas de Informação 2015/2016</p>
+                        <p>Projeto de Tecnologias de Sistemas de Informação - Equipa 25 2015/2016</p>
 
                         <!-- Divider -->
                         <div class="hr1" style="margin-bottom:10px;"></div>

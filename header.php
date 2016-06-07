@@ -48,24 +48,7 @@
                 <a href="estatistica.php">Estatísticas</a>
             </li>
             <li>
-                <a href="atos.php">Atos</a>
-                <ul class="dropdown">
-                    <?php
-                        require_once('funcoes.php');
-
-                        $grupos_atos = get_grupo_ato();
-                        if(mysqli_num_rows($grupos_atos) > 0) {
-                            while($row = mysqli_fetch_array($grupos_atos)) {
-                                echo '<form id="navform'.$row['ID_ATO_PROFISSAO'].'" action="atoprofissao.php" method="post">';
-                                echo '&nbsp&nbsp&nbsp<a href="javascript:;" onclick="document.getElementById(\'navform'.$row['ID_ATO_PROFISSAO'].'\').submit();">';
-                                echo '<li>'.$row['NUMERACAO_ATO'] . ' ' . $row['SIGLA'].'</li>';
-                                echo '</a>';
-                                echo '<input type="hidden" name="idato" value="'.$row['ID_ATO_PROFISSAO'].'">';
-                                echo '</form>';
-                            }
-                        }
-                    ?>
-                </ul>
+                <a href="atos.php">Atos de Profissão</a>
             </li>
             <li>
                 <a href="cursos.php">Cursos</a>

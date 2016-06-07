@@ -3,7 +3,6 @@
 include 'head.php';
 include 'funcoes.php';
 $info = $_POST['idcurso'];
-echo $info;
 ?>
 
 <body>
@@ -51,12 +50,21 @@ echo $info;
                             <div class="skill-shortcode">
                                 <div class="skill">
                                     <div class="progress">
-                                        <div class="progress-bar" role="progressbar" data-percentage="
+                                        
                                         <?php
                                         $cobert_curso = get_cobertura_curso($info);
                                         if (mysqli_num_rows($cobert_curso) > 0) {
                                             while ($row = mysqli_fetch_array($cobert_curso)) {
-                                                echo $row['AVALIACAO'];
+                                                if($row['AVALIACAO'] <= 25) {
+                                                    $class = "red";
+                                                } else if ($row['AVALIACAO'] <=50) {
+                                                    $class = "yellow";
+                                                } else if ($row['AVALIACAO'] <=75) {
+                                                    $class = "orange";
+                                                } else {
+                                                    $class = "green";
+                                                } 
+                                                echo '<div class="progress-bar '.$class.'" role="progressbar" data-percentage="'.$row['AVALIACAO'];
                                             }
                                         }
                                         ?>">
@@ -81,9 +89,9 @@ echo $info;
                         <div class="col-md-12">
                             <!-- Classic Heading -->
                             <h4 class="classic-title"><span>Cobertura por Atos</span></h4>
-                            
+
                             <script type="text/javascript">
-                                $(function() {
+                                $(function () {
                                     // Create the chart
                                     $('#conteudografico').highcharts({
                                         chart: {
@@ -137,7 +145,15 @@ if (mysqli_num_rows($cobato) > 0) {
         $nomecurso = get_info_ato($row['ID_ATO_PROFISSAO']);
         while ($row2 = mysqli_fetch_array($nomecurso)) {
             $nome = $row2['DESIGNACAO'];
-            echo '{name:"' . $nome . '",y:' . $aval . ', drilldown:"' . $nome . '",color:"#ff4d4d"},';
+            if($aval <= 25) {
+                echo '{name:"' . $nome . '",y:' . $aval . ', drilldown:"' . $nome . '",color:"#e74c3c"},';
+            } else if ($aval <=50) {
+                echo '{name:"' . $nome . '",y:' . $aval . ', drilldown:"' . $nome . '",color:"#f39c12"},';
+            } else if ($aval <=75) {
+                echo '{name:"' . $nome . '",y:' . $aval . ', drilldown:"' . $nome . '",color:"#f1c40f"},';
+            } else {
+                echo '{name:"' . $nome . '",y:' . $aval . ', drilldown:"' . $nome . '",color:"#2ecc71"},';
+            }
         }
     }
 }
@@ -147,131 +163,58 @@ if (mysqli_num_rows($cobato) > 0) {
                                                 ]
                                             }],
                                         drilldown: {
-                                            series: [{
-                                                    name: 'ADER',
-                                                    id: 'Análise de Domínio e Engenharia de Requisitos',
-                                                    color: '#ff4d4d',
-                                                    data: [
-                                                        [
-                                                            '1.1 Caracterização de domínios e levantamento de requisitos informacionais e informáticos',
-                                                            50
-                                                        ],
-                                                        [
-                                                            '1.2 Especificação de requisitos de informação na perspetiva do negócio',
-                                                            50
-                                                        ],
-                                                        [
-                                                            '1.3 Conceção de sistemas de informação',
-                                                            50
-                                                        ],
-                                                        [
-                                                            '1.4 Especificação de requisitos de soluções informáticas',
-                                                            50
-                                                        ]
-                                                    ]
-                                                }, {
-                                                    name: 'CCSI',
-                                                    id: 'Conceção e Construção de Soluções Informáticas',
-                                                    color: '#ff4d4d',
-                                                    data: [
-                                                        [
-                                                            '2.1 Análise e estimativa de esforço dos requisitos de soluções informáticas',
-                                                            50
-                                                        ],
-                                                        [
-                                                            '2.2 Conceção de soluções informáticas',
-                                                            50
-                                                        ],
-                                                        [
-                                                            '2.3 Construção e manutenção de soluções informáticas',
-                                                            50
-                                                        ],
-                                                        [
-                                                            '2.4 Configuração, integração e entrega de soluções informáticas',
-                                                            50
-                                                        ]
-                                                    ]
-                                                }, {
-                                                    name: 'TVSI',
-                                                    id: 'Teste e Validação de Soluções Informáticas',
-                                                    color: '#ff4d4d',
-                                                    data: [
-                                                        [
-                                                            '3.1 Planeamento de teste e validação de soluções informáticas',
-                                                            50
-                                                        ],
-                                                        [
-                                                            '3.2 Análise e conceção de testes de soluções informáticas',
-                                                            50
-                                                        ],
-                                                        [
-                                                            '3.3 Implementação e execução de testes de soluções informáticas',
-                                                            50
-                                                        ]
-                                                    ]
-                                                }, {
-                                                    name: 'PEITI',
-                                                    id: 'Planeamento e Exploração de Infra-Estruturas de Tecnologias de Informação',
-                                                    color: '#ff4d4d',
-                                                    data: [
-                                                        [
-                                                            '4.1 Análise e estimativa de esforço dos requisitos de infraestruturas de computação, comunicação e serviços',
-                                                            50
-                                                        ],
-                                                        [
-                                                            '4.2 Conceção de infraestruturas de computação, comunicações e serviços',
-                                                            50
-                                                        ],
-                                                        [
-                                                            '4.3 Configuração, integração e entrega de infraestruturas de computação, comunicações e serviços',
-                                                            50
-                                                        ],
-                                                        [
-                                                            '4.4 Gestão e manutenção de infraestruturas de computação, comunicações e serviços',
-                                                            50
-                                                        ]
-                                                    ]
-                                                }, {
-                                                    name: 'GPSI',
-                                                    id: 'Gestão de Projectos de Sistemas de Informação',
-                                                    color: '#ff4d4d',
-                                                    data: [
-                                                        [
-                                                            '5.1 Conceção de planos de gestão de projetos de sistemas de informação',
-                                                            50
-                                                        ],
-                                                        [
-                                                            '5.2 Gestão de recursos e stakeholders em projetos de sistemas de informação',
-                                                            50
-                                                        ],
-                                                        [
-                                                            '5.3 Gestão de risco em projetos de sistemas de informação',
-                                                            50
-                                                        ],
-                                                        [
-                                                            '5.4 Monitorização, controlo e reporte na evolução de projetos de sistemas de informação',
-                                                            50
-                                                        ],
-                                                        [
-                                                            '5.5 Encerramento de projetos de sistemas de informação',
-                                                            50
-                                                        ]
-                                                    ]
-                                                }, {
-                                                    name: 'PASI',
-                                                    id: 'Planeamento e Auditoria de Sistemas de Informação',
-                                                    color: '#ff4d4d',
-                                                    data: [
-                                                        [
-                                                            '6.1 Conceção de estratégias de sistemas de informação',
-                                                            50
-                                                        ],
-                                                        [
-                                                            '6.2 Implementação de planos de governação de sistemas de informação',
-                                                            50
-                                                        ]
-                                                    ]
-                                                }]
+                                            series:
+<?php
+$atos1 = get_atos_nivel1();
+if (mysqli_num_rows($atos1) > 0) {
+    $dados = "[";
+    while ($row = mysqli_fetch_array($atos1)) {
+        $descato = $row['DESIGNACAO'];
+        $sigla = $row['SIGLA'];
+        $idAto = $row['ID_ATO_PROFISSAO'];
+        $atosFilho = get_atos_filhos($idAto);
+        $dados .= "{";
+        $dados .= "name: '" . $sigla . "', ";
+        $dados .= "id: '" . $descato . "', ";
+        $cobatocurso = get_cobertura_curso_ato($info, $idAto);
+        if(mysqli_num_rows($cobatocurso) > 0) {
+            $aval = mysqli_fetch_array($cobatocurso)['AVALIACAO'];
+        }
+        if($aval <= 25) {
+                $dados .= "color: '#e74c3c', ";
+            } else if ($aval <=50) {
+                $dados .= "color: '#f39c12', ";
+            } else if ($aval <=75) {
+                $dados .= "color: '#f1c40f', ";
+            } else {
+                $dados .= "color: '#27ae60', ";
+            }
+        
+        $dados .= "data: [";
+        if (mysqli_num_rows($atosFilho) > 0) {
+            while ($row3 = mysqli_fetch_array($atosFilho)) {
+                $idAtoFilho = $row3['ID_ATO_PROFISSAO'];
+                $numeracao = $row3['NUMERACAO_ATO'];
+                $descAtoFilho = $row3['DESIGNACAO'];
+                $cobertura = get_cobertura_curso_ato($info, $idAtoFilho);
+                $valor = mysqli_fetch_array($cobertura)['AVALIACAO'];
+                $dados .= "[";
+                $dados .= "'".$numeracao . " " . $descAtoFilho . "', ";
+                $dados .= $valor;
+                $dados .= "],";
+            }
+            $dados = substr($dados, 0, -1);
+        }
+        $dados .= "],";
+        $dados = substr($dados, 0, -1);
+        $dados .= "},";
+    }
+    $dados = substr($dados, 0, -1);
+    $dados .= "]";
+    echo $dados;
+}
+?>
+
                                         }
                                     });
                                 });
@@ -286,11 +229,7 @@ if (mysqli_num_rows($cobato) > 0) {
                         <div class="col-md-12">
                             <!-- Classic Heading -->
                             <h4 class="classic-title"><span>Cobertura por Unidade Curricular</span></h4>
-
-
-
                         </div>
-
                     </div>
                     <!-- .container -->
                 </div>

@@ -367,7 +367,17 @@ echo $curso;
                                     </div>
                                 </div>
                                 <!-- End Accordion 2 -->
-
+<?php
+$objcurso = get_curso($curso);
+if(mysqli_num_rows($objcurso)>0) {
+    while($row = mysqli_fetch_array($objcurso)) {
+        $grau = $row['GRAU'];
+    }
+}
+if($grau == 3) {
+    
+} else {
+?>
                                 <!-- Start Accordion 3 -->
                                 <div class="panel panel-default">
                                     <div class="panel-heading">
@@ -392,6 +402,17 @@ echo $curso;
                                     </div>
                                 </div>
                                 <!-- End Accordion 3 -->
+<?php
+$objcurso = get_curso($curso);
+if(mysqli_num_rows($objcurso)>0) {
+    while($row = mysqli_fetch_array($objcurso)) {
+        $grau = $row['GRAU'];
+    }
+}
+if($grau == 1) {
+    
+} else {
+?>
 
                                 <!-- Start Accordion 4 -->
                                 <div class="panel panel-default">
@@ -442,7 +463,10 @@ echo $curso;
                                     </div>
                                 </div>
                                 <!-- End Accordion 5 -->
-
+<?php
+}
+}
+?>
                             </div>
                             <!-- End Accordion -->
                         </div>

@@ -1,18 +1,32 @@
 <?php 
-$name = $_POST['name'];
-$email = $_POST['email'];
-$message = $_POST['message'];
-$subject = $_POST['subject'];
 
-$to = 'luisbernardo@aaum.pt';
-$message = 'FROM: '.$name.' Email: '.$email.'Message: '.$message;
-$headers = 'From: youremail@domain.com' . "\r\n";
- 
-if (filter_var($email, FILTER_VALIDATE_EMAIL)) { // this line checks that we have a valid email address
-mail($to, $subject, $message, $headers); //This method sends the mail.
-echo "Your email was sent!"; // success message
-}else{
-echo "Invalid Email, please provide an correct email.";
+echo getcwd(); 
+
+require_once("PHPMailer-master\PHPMailerAutoload.php");
+
+$mail = new PHPMailer();
+
+$mail->isSMTP();                                   
+$mail->Host = 'smtp.gmail.com'; 
+$mail->SMTPAuth = true;                 
+$mail->Host = 587;
+$mail->Username = 'aei2015ptsi@gmail.com';                
+$mail->Password = '14789632*';
+
+$mail->From = $_POST['email'];
+$mail->FromName = $_POST['name'];
+$mail->addAddress($_POST['email'], $_POST['name']);
+$mail->addReplyTo($_POST['email'], $_POST['name']);
+
+$mail->Subject = 'Contacto Plataforma AEI de ' . $_POST['name'];
+$mail->Body    = $_POST['message'];
+$mail->AltBody = $_POST['message'];
+
+if(!$mail->send()) {
+    echo 'Message could not be sent.';
+    echo 'Mailer Error: ' . $mail->ErrorInfo;
+} else {
+    echo 'Message has been sent';
 }
 
 ?>
