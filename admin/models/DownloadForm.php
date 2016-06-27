@@ -16,7 +16,7 @@ class DownloadForm extends Model
     }
     
     public function ligar_bd() {
-        $link = mysqli_connect("localhost", "root", "", "ptsi");
+        $link = mysqli_connect("localhost", "jvarajao_aei_u", "aeiptsi2016", "jvarajao_aei");
         mysqli_query($link,"SET NAMES utf8");
         mysqli_set_charset($link, "uft8");
         return $link;
